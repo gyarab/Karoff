@@ -126,7 +126,7 @@ public class BoardSetup : MonoBehaviour
     //Sets borderCell
     protected void InstantiateBorderCell(int x, int z)
     {
-        Instantiate(GridCell, new Vector3(x, 0, z), Quaternion.identity).GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+        Instantiate(GridCell, new Vector3(x, 0.25f, z), Quaternion.identity).GetComponent<Renderer>().material.SetColor("_Color", Color.black);
     }
 
 }
