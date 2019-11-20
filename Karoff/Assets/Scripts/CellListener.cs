@@ -23,6 +23,7 @@ public class CellListener : MonoBehaviour
             if (hit)
             {
                 hitInfo.transform.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                hitInfo.transform.gameObject.transform.position = new Vector3(hitInfo.transform.gameObject.transform.position.x, 0.25f, hitInfo.transform.gameObject.transform.position.z);
             }
         }
     }
