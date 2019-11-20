@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoardSetup : MonoBehaviour
 {
     public GameObject GridCell;
+    public Material testTile;
     public int gridSizeX = 3; //Grid of board + board border
     public int gridSizeZ = 3;
     int halfGridX;
@@ -15,6 +16,7 @@ public class BoardSetup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         gridHalf(); //Check if grid X/Z is even/odd numbers and sets halfGridX/Z
         InstantiateIfX(halfGridX, halfGridZ); //Generates X x Z + border board
 
@@ -126,7 +128,7 @@ public class BoardSetup : MonoBehaviour
     //Sets borderCell
     protected void InstantiateBorderCell(int x, int z)
     {
-        Instantiate(GridCell, new Vector3(x, 0.25f, z), Quaternion.identity).GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+        Instantiate(GridCell, new Vector3(x, 0.25f, z), Quaternion.identity).GetComponent<MeshRenderer>().material = testTile;
     }
 
 }

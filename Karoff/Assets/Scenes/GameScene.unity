@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GridCell: {fileID: 3423689367116230271, guid: f091566ea858c4a1db7fc666473aab09,
     type: 3}
+  testTile: {fileID: 2100000, guid: 0bc6e808eb18b44b9a0c54ca9342e7c0, type: 2}
   gridSizeX: 4
   gridSizeZ: 5
 --- !u!4 &857111696
@@ -351,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.67559016, y: 0, z: 0, w: 0.7372774}
-  m_LocalPosition: {x: 0, y: 6, z: -1}
+  m_LocalPosition: {x: 0, y: 7, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
