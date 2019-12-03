@@ -4,27 +4,38 @@ using UnityEngine;
 
 public class BoardSetup : MonoBehaviour
 {
+    public GameObject cameraObject;
     public GameObject GridCell;
     public Material testTile;
+    public Material logoTile;
+    public Material emptyTile;
+
     public int gridSizeX = 3; //Grid of board + board border
     public int gridSizeZ = 3;
-    int halfGridX;
-    int halfGridZ;
+
     bool evenX;
     bool evenZ;
+    int halfGridX;
+    int halfGridZ;
+    float startX;
+    float startZ;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-
         gridHalf(); //Check if grid X/Z is even/odd numbers and sets halfGridX/Z
-        InstantiateIfX(halfGridX, halfGridZ); //Generates X x Z + border board
+        InstantiateXZ(halfGridX, halfGridZ); //Generates X x Z + border board
+
+        setCamera();
 
     }
 
-    //Check if grid X/Z is even/odd numbers and sets halfGridX/Z
-    void gridHalf() {
-        if (gridSizeX % 2 == 0) {
+    //Check if grid X/Z is even/odd numbers and sets halfGridX/Z + 1 for border
+    private void gridHalf()
+    {
+        if (gridSizeX % 2 == 0) { //if gridSizeX is even and sets sizes
             halfGridX = gridSizeX / 2;
             evenX = true;
         }
@@ -32,103 +43,62 @@ public class BoardSetup : MonoBehaviour
             halfGridX = (gridSizeX - 1) / 2;
             evenX = false;
         }
+
         if (gridSizeZ % 2 == 0) {
             halfGridZ = gridSizeZ / 2;
             evenZ = true;
         }
-        else {
+        else
+        {
             halfGridZ = (gridSizeZ - 1) / 2;
             evenZ = false;
         }
+
+        halfGridZ += 1;
+        halfGridX += 1;
     }
 
-    //Sets X cells
-    protected void InstantiateIfX(int halfGridX, int halfGridZ) { 
-        if(evenX == true) {
-            for (int x = 0 - halfGridX - 1; x < halfGridX + 1; x++)
-            {
-                InstantiateIfZ(x, halfGridX, halfGridZ);
-            }
+
+    //loops generating board
+    protected void InstantiateXZ(int halfGridX, int halfGridZ) {
+        //sets starting cell coordinates
+        if (evenX == true) {
+            startX = halfGridX - 0.5f;
         }
         else {
-            for (int x = 0 - halfGridX - 1; x <= halfGridX + 1; x++)
-            {
-                InstantiateIfZ(x, halfGridX, halfGridZ);
+            startX = halfGridX;
+        }
+        if (evenZ == true) {
+            startZ = halfGridZ - 0.5f;
+        }
+        else {
+            startZ = halfGridZ;
+        }
+
+        for (float x = startX; x >= -startX; x--) {
+            for (float z = startZ; z >= -startZ; z--) {
+                setCell(x, z, startX, startZ);
             }
         }
     }
 
-    //Sets Z cells
-    protected void InstantiateIfZ(int x, int halfGridX, int halfGridZ) {
-        if (evenZ == true)
-        {
-            for (int z = 0 - halfGridZ - 1; z < halfGridZ + 1; z++)
-            {
-                CheckBorders(x, z, halfGridX, halfGridZ);
-            }
+    //sets cells of the board
+    protected void setCell(float x, float z, float startX, float startZ){
+        if(x == startX || x == -startX || z == startZ || z == -startZ) {    //sets boarders
+            Instantiate(GridCell, new Vector3(x, 0.75f, z), Quaternion.identity).GetComponent<MeshRenderer>().material = testTile;
         }
-        else
-        {
-            for (int z = 0 - halfGridZ - 1; z <= halfGridZ + 1; z++)
-            {
-                CheckBorders(x, z, halfGridX, halfGridZ);
+        else {  //sets regular cells
+
+            if (z == startZ-1 || z == -(startZ - 1)) {
+                Instantiate(GridCell, new Vector3(x, 0.5f, z), Quaternion.identity).GetComponent<MeshRenderer>().material = logoTile;
+            }
+            else { 
+                Instantiate(GridCell, new Vector3(x, 0.25f, z), Quaternion.identity).GetComponent<MeshRenderer>().material = emptyTile;
             }
         }
     }
 
-
-    //Check borders
-    protected void CheckBorders(int x, int z, int halfGridX, int halfGridZ) {
-        if (evenX == true && evenZ == true)
-        {
-            if (x == -halfGridX - 1 || x == halfGridX || z == -halfGridZ - 1 || z == halfGridZ)
-            {
-                InstantiateBorderCell(x, z);
-            }
-            else
-            {
-                InstantiateCell(x, z);
-            }
-        }
-        else if(evenX == false && evenZ == true) {
-            if (x == -halfGridX - 1 || x == halfGridX + 1 || z == -halfGridZ - 1 || z == halfGridZ)
-            {
-                InstantiateBorderCell(x, z);
-            }
-            else
-            {
-                InstantiateCell(x, z);
-            }
-        }
-        else if (evenX == true && evenZ == false)
-        {
-            if (x == -halfGridX - 1 || x == halfGridX || z == halfGridZ + 1 || z == -halfGridZ - 1) {
-                InstantiateBorderCell(x,z);
-            }
-            else {
-                InstantiateCell(x, z);
-            }
-        }
-        else if(evenX == false && evenZ == false){ 
-            if(z == halfGridZ + 1 || z == -halfGridZ - 1 || x == -halfGridX - 1 || x == halfGridX + 1)
-            {
-                InstantiateBorderCell(x, z);
-            }
-            else {
-                InstantiateCell(x, z);
-            }
-        }
+    protected void setCamera() {
+        cameraObject.transform.position = new Vector3(0, gridSizeZ+1.65f, 0); //move main camera
     }
-
-    //Sets basic cell
-    protected void InstantiateCell(int x, int z) {
-        Instantiate(GridCell, new Vector3(x, 0, z), Quaternion.identity);
-    }
-
-    //Sets borderCell
-    protected void InstantiateBorderCell(int x, int z)
-    {
-        Instantiate(GridCell, new Vector3(x, 0.25f, z), Quaternion.identity).GetComponent<MeshRenderer>().material = testTile;
-    }
-
 }

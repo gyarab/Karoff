@@ -4,27 +4,43 @@ using UnityEngine;
 
 public class CellListener : MonoBehaviour
 {
+    public Material borderTile;
+    Material select;
 
-    // Start is called before the first frame update
     void Start()
     {
 
-      
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        //On click selects cell and changes color to red
+        mouseClickListener();
+    }
+
+    protected void mouseClickListener() // Targets clicked object
+    {
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
             if (hit)
             {
-                hitInfo.transform.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-                hitInfo.transform.gameObject.transform.position = new Vector3(hitInfo.transform.gameObject.transform.position.x, 0.25f, hitInfo.transform.gameObject.transform.position.z);
+                if (hitInfo.transform.position.y != 0.75f)
+                { //checks if it's not border
+                    if (hitInfo.transform.position.y == 0.5f) // check if its not already used
+                    {
+                        select = hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material;
+                    }
+                    if (hitInfo.transform.position.y == 0.25f) //uses
+                    {
+                        hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, 0.5f, hitInfo.transform.position.z);
+                        hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material = select;
+                    }
+                }
             }
         }
     }
 }
+
