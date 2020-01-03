@@ -10,6 +10,11 @@ public class BoardSetup : MonoBehaviour
     public Material logoTile;
     public Material emptyTile;
 
+    public BiomData blank;
+    public BiomData starting;
+    public BiomData border;
+
+
     public int gridSizeX = 3; //Grid of board + board border
     public int gridSizeZ = 3;
 
@@ -20,7 +25,7 @@ public class BoardSetup : MonoBehaviour
     float startX;
     float startZ;
 
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -85,15 +90,21 @@ public class BoardSetup : MonoBehaviour
     //sets cells of the board
     protected void setCell(float x, float z, float startX, float startZ){
         if(x == startX || x == -startX || z == startZ || z == -startZ) {    //sets boarders
-            Instantiate(GridCell, new Vector3(x, 0.75f, z), Quaternion.identity).GetComponent<MeshRenderer>().material = testTile;
+            GridCell.GetComponent<Biome>().biomData = border;
+
+
+            Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = GridCell.GetComponent<Biome>().biomData.Material;
         }
         else {  //sets regular cells
 
             if (z == startZ-1 || z == -(startZ - 1)) {
-                Instantiate(GridCell, new Vector3(x, 0.5f, z), Quaternion.identity).GetComponent<MeshRenderer>().material = logoTile;
+                GridCell.GetComponent<Biome>().biomData = starting;
+                Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = GridCell.GetComponent<Biome>().biomData.Material;
             }
-            else { 
-                Instantiate(GridCell, new Vector3(x, 0.25f, z), Quaternion.identity).GetComponent<MeshRenderer>().material = emptyTile;
+            else {
+                GridCell.GetComponent<Biome>().biomData = blank;
+                Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = GridCell.GetComponent<Biome>().biomData.Material;
+
             }
         }
     }

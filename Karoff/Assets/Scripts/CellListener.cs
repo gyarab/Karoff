@@ -5,8 +5,7 @@ using UnityEngine;
 public class CellListener : MonoBehaviour
 {
     public Material borderTile;
-    Material select;
-    public Sprite s;
+    public BiomData starting;
 
     RaycastHit hitInfo = new RaycastHit();
 
@@ -48,18 +47,18 @@ public class CellListener : MonoBehaviour
 
             if (hitInfo.transform.position.y == 0.5f) // check if its not already used
             {
-                select = hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material;
+
             }
-            if (select != null)
-            {
+           
                 if (hitInfo.transform.position.y == 0.25f) //uses
                 {
-                    hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, 0.5f, hitInfo.transform.position.z);
-                    //hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material = select;
+                    hitInfo.transform.gameObject.GetComponent<Biome>().biomData = starting;
+                    hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Y, hitInfo.transform.position.z);
+                    hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material = hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Material;
 
-                    Debug.Log(select);
+                    
                 }
-            }
+            
         }
     }
 

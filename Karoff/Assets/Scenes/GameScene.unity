@@ -249,7 +249,10 @@ MonoBehaviour:
   testTile: {fileID: 2100000, guid: 0bc6e808eb18b44b9a0c54ca9342e7c0, type: 2}
   logoTile: {fileID: 2100000, guid: fd7bd07f69c6f4a12971b5da483c1ae1, type: 2}
   emptyTile: {fileID: 2100000, guid: b4de4e699eb99405f8688259a4442f40, type: 2}
-  gridSizeX: 20
+  blank: {fileID: 11400000, guid: 23f435b9fa5ef478dac5ac8ccd08cb7e, type: 2}
+  starting: {fileID: 11400000, guid: 1568d81b8c6e844b99f90a4b60d0f748, type: 2}
+  border: {fileID: 11400000, guid: d7be21f70d39d4d038ea627737cd9314, type: 2}
+  gridSizeX: 10
   gridSizeZ: 10
 --- !u!4 &857111696
 Transform:
@@ -278,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   borderTile: {fileID: 2100000, guid: 0bc6e808eb18b44b9a0c54ca9342e7c0, type: 2}
-  s: {fileID: 21300000, guid: 0868df09c741847f184053f7fc046e89, type: 3}
+  starting: {fileID: 11400000, guid: 1568d81b8c6e844b99f90a4b60d0f748, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,12 @@ guid: b0a35fe3a0376495096dd49f756e3a72
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cameraObject: {instanceID: 0}
+  - GridCell: {instanceID: 0}
+  - testTile: {instanceID: 0}
+  - logoTile: {instanceID: 0}
+  - emptyTile: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
