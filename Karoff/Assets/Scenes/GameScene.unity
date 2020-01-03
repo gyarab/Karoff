@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   borderTile: {fileID: 2100000, guid: 0bc6e808eb18b44b9a0c54ca9342e7c0, type: 2}
+  s: {fileID: 21300000, guid: 0868df09c741847f184053f7fc046e89, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
