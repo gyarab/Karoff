@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 479d347e168834e2abb49c0cf8571aef, type: 3}
-  m_Name: 2_starting
+  m_Name: -1_visualGreen
   m_EditorClassIdentifier: 
-  biomName: starting
-  material: {fileID: 2100000, guid: fd7bd07f69c6f4a12971b5da483c1ae1, type: 2}
-  status: 1
+  biomName: visualGreen
+  material: {fileID: 2100000, guid: 1873040d8a51c4f2ea2feb9bda4d6968, type: 2}
+  status: -1
   bonus: 0
-  y: 0.5
+  y: 0.48

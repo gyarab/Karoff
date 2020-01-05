@@ -4,24 +4,33 @@ using UnityEngine;
 
 public class CellListener : MonoBehaviour
 {
+    public GameObject GreenVisualCell;
     public Material borderTile;
     public BiomData starting;
+    public BiomData visualGreen;
+
+    protected BiomData hitBiome;
+    GameObject VisualXPlus;
+    GameObject VisualXMinus;
+    GameObject VisualZPlus;
+    GameObject VisualZMinus;
+
+    bool select = true;
+
+    float selectZ;
+    float selectX;
 
     RaycastHit hitInfo = new RaycastHit();
-
-    void Start()
-    {
-
-
-    }
 
 
     void Update()
     {
+        // if (MyTurn){
         if (mouseClickListener())
         {
-            action();
+            Action();
         }
+        //}
     }
 
     protected bool mouseClickListener() // Targets clicked object
@@ -41,30 +50,115 @@ public class CellListener : MonoBehaviour
         return false;
     }
 
-    protected void action() {
-        if (hitInfo.transform.position.y != 0.75f)
-        { //checks if it's not border
+    protected bool IsBorder() {
+        if (hitInfo.transform.position.y == 0.75f) { //checks if it's not border
+            return true;
+        }
+        return false;
+    }
 
-            if (hitInfo.transform.position.y == 0.5f) // check if its not already used
-            {
-
+    protected void Action() {
+        if (IsBorder() == false) {
+            if (select) {
+                Select();
+                Preview();
             }
-           
-                if (hitInfo.transform.position.y == 0.25f) //uses
-                {
-                    hitInfo.transform.gameObject.GetComponent<Biome>().biomData = starting;
-                    hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Y, hitInfo.transform.position.z);
-                    hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material = hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Material;
-
-                    
-                }
-            
+            else {
+                Place();
+                Remove();
+            }
         }
     }
+
+    protected void Select()
+    {
+        if (hitInfo.transform.position.y == 0.5f) //check position
+        {
+            selectX = hitInfo.transform.position.x;
+            selectZ = hitInfo.transform.position.z;
+            hitBiome = hitInfo.transform.gameObject.GetComponent<Biome>().biomData;
+            select = false;
+        }
+        else {
+            select = true;
+        }
+    }
+
+    protected void Place()
+    {
+        if (nextCell()) {
+            hitInfo.transform.gameObject.GetComponent<Biome>().biomData = hitBiome;
+            hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material = hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Material;
+            hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Y, hitInfo.transform.position.z);
+        }
+        select = true;
+    }
+
+    protected void Preview()
+    {
+        if (select == false)
+        {
+            VisualXPlus = Instantiate(GreenVisualCell, new Vector3(selectX + 1, GreenVisualCell.GetComponent<Biome>().biomData.Y, selectZ), Quaternion.identity);
+            VisualXPlus.GetComponent<MeshRenderer>().material = GreenVisualCell.GetComponent<Biome>().biomData.Material;
+            VisualXMinus = Instantiate(GreenVisualCell, new Vector3(selectX - 1, GreenVisualCell.GetComponent<Biome>().biomData.Y, selectZ), Quaternion.identity);
+            VisualXMinus.GetComponent<MeshRenderer>().material = GreenVisualCell.GetComponent<Biome>().biomData.Material;
+            VisualZPlus = Instantiate(GreenVisualCell, new Vector3(selectX, GreenVisualCell.GetComponent<Biome>().biomData.Y, selectZ + 1), Quaternion.identity);
+            VisualZPlus.GetComponent<MeshRenderer>().material = GreenVisualCell.GetComponent<Biome>().biomData.Material;
+            VisualZMinus = Instantiate(GreenVisualCell, new Vector3(selectX, GreenVisualCell.GetComponent<Biome>().biomData.Y, selectZ - 1), Quaternion.identity);
+            VisualZMinus.GetComponent<MeshRenderer>().material = GreenVisualCell.GetComponent<Biome>().biomData.Material;
+        }
+    }
+
+    protected void Remove() 
+    {
+        Destroy(VisualXPlus);
+        Destroy(VisualZPlus);
+        Destroy(VisualXMinus);
+        Destroy(VisualZMinus);
+
+    }
+
+    protected bool nextCell() {
+        if (hitInfo.transform.position.y == 0f)
+        {
+            if ((hitInfo.transform.position.z == selectZ + 1) && (hitInfo.transform.position.x == selectX))
+            {
+                return true;
+            }
+            else if ((hitInfo.transform.position.z == selectZ - 1) && (hitInfo.transform.position.x == selectX))
+            {
+                return true;
+            }
+            else if ((hitInfo.transform.position.z == selectZ) && (hitInfo.transform.position.x == selectX + 1))
+            {
+                return true;
+            }
+            else if ((hitInfo.transform.position.z == selectZ) && (hitInfo.transform.position.x == selectX - 1))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //hitInfo.transform.gameObject.GetComponent<Biome>().biomData = starting;
+    //        hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Y, hitInfo.transform.position.z);
+    //hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material = hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Material;
+
+
+
+
 
 }
 //jentak btw sem davam odkazy z kterych se cerpalo pri tvorbe 
 //https://answers.unity.com/questions/411793/selecting-a-game-object-with-a-mouse-click-on-it.html
 //https://www.raywenderlich.com/2826197-scriptableobject-tutorial-getting-started#toc-anchor-003
 //https://docs.unity3d.com/Manual/index.html
+//https://answers.unity.com/questions/534582/accessing-variable-defined-in-a-script-attached-to.html
 

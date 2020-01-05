@@ -280,8 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd6a9a6737a34164950d2f631b780f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GreenVisualCell: {fileID: 6500506338239485846, guid: 4a290d9fe915e4a75b6420bc565640b2,
+    type: 3}
   borderTile: {fileID: 2100000, guid: 0bc6e808eb18b44b9a0c54ca9342e7c0, type: 2}
   starting: {fileID: 11400000, guid: 1568d81b8c6e844b99f90a4b60d0f748, type: 2}
+  visualGreen: {fileID: 11400000, guid: dcd27a07626d646078743dd1678ca498, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
