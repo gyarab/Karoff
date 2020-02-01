@@ -16,3 +16,5 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: b4de4e699eb99405f8688259a4442f40, type: 2}
   status: 0
   bonus: 0
+  color: {r: 1, g: 1, b: 1, a: 0}
+  y: 0

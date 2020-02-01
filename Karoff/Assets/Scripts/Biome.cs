@@ -17,18 +17,4 @@ public class Biome : MonoBehaviour
         //Debug.Log("Z is:" + biomData.Z.ToString());
     }
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

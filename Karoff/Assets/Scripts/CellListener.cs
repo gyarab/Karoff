@@ -51,6 +51,7 @@ public class CellListener : MonoBehaviour
     }
 
     protected bool IsBorder() {
+        Debug.Log("is border");
         if (hitInfo.transform.position.y == 0.75f) { //checks if it's not border
             return true;
         }
@@ -58,6 +59,7 @@ public class CellListener : MonoBehaviour
     }
 
     protected void Action() {
+        Debug.Log("action");
         if (IsBorder() == false) {
             if (select) {
                 Select();
@@ -65,13 +67,13 @@ public class CellListener : MonoBehaviour
             }
             else {
                 Place();
-                Remove();
             }
         }
     }
 
     protected void Select()
     {
+        Debug.Log("Select");
         if (hitInfo.transform.position.y == 0.5f) //check position
         {
             selectX = hitInfo.transform.position.x;
@@ -86,16 +88,20 @@ public class CellListener : MonoBehaviour
 
     protected void Place()
     {
+        select = true;
         if (nextCell()) {
+            Debug.Log("place");
             hitInfo.transform.gameObject.GetComponent<Biome>().biomData = hitBiome;
-            hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material = hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Material;
+            hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material.color = hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Color;
             hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Y, hitInfo.transform.position.z);
         }
-        select = true;
+       
+
     }
 
     protected void Preview()
     {
+        Debug.Log("preview");
         if (select == false)
         {
             VisualXPlus = Instantiate(GreenVisualCell, new Vector3(selectX + 1, GreenVisualCell.GetComponent<Biome>().biomData.Y, selectZ), Quaternion.identity);
@@ -111,6 +117,7 @@ public class CellListener : MonoBehaviour
 
     protected void Remove() 
     {
+        Debug.Log("remove");
         Destroy(VisualXPlus);
         Destroy(VisualZPlus);
         Destroy(VisualXMinus);
@@ -119,6 +126,8 @@ public class CellListener : MonoBehaviour
     }
 
     protected bool nextCell() {
+        Remove();
+        Debug.Log("nextcell");
         if (hitInfo.transform.position.y == 0f)
         {
             if ((hitInfo.transform.position.z == selectZ + 1) && (hitInfo.transform.position.x == selectX))
@@ -137,7 +146,22 @@ public class CellListener : MonoBehaviour
             {
                 return true;
             }
+
             else {
+                return false;
+            }
+
+        }
+        else if (hitInfo.transform.position.y == 0.5f)
+        {
+            if (hitInfo.transform.position.x == selectX && hitInfo.transform.position.z == selectZ)
+            {
+
+                return false;
+            }
+            else {
+                Select();
+                Preview();
                 return false;
             }
         }
@@ -146,12 +170,6 @@ public class CellListener : MonoBehaviour
             return false;
         }
     }
-
-    //hitInfo.transform.gameObject.GetComponent<Biome>().biomData = starting;
-    //        hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Y, hitInfo.transform.position.z);
-    //hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material = hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Material;
-
-
 
 
 

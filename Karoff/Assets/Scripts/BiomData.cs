@@ -13,6 +13,8 @@ public class BiomData : ScriptableObject
     private int status;
     [SerializeField]
     private int bonus;
+    [SerializeField]
+    private Color color;
 
     //[SerializeField]
     //public float x;
@@ -66,6 +68,14 @@ public class BiomData : ScriptableObject
         get
         {
             return bonus;
+        }
+    }
+
+    public Color Color
+    {
+        get
+        {
+            return color;
         }
     }
 

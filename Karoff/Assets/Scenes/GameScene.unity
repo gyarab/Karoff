@@ -246,12 +246,13 @@ MonoBehaviour:
   cameraObject: {fileID: 1605843001}
   GridCell: {fileID: 3423689367116230271, guid: f091566ea858c4a1db7fc666473aab09,
     type: 3}
-  testTile: {fileID: 2100000, guid: 0bc6e808eb18b44b9a0c54ca9342e7c0, type: 2}
-  logoTile: {fileID: 2100000, guid: fd7bd07f69c6f4a12971b5da483c1ae1, type: 2}
-  emptyTile: {fileID: 2100000, guid: b4de4e699eb99405f8688259a4442f40, type: 2}
+  BuildingObject: {fileID: 3203859864759271233, guid: dea7c47b2e2414f06842553535340be2,
+    type: 3}
   blank: {fileID: 11400000, guid: 23f435b9fa5ef478dac5ac8ccd08cb7e, type: 2}
-  starting: {fileID: 11400000, guid: 1568d81b8c6e844b99f90a4b60d0f748, type: 2}
+  desert: {fileID: 11400000, guid: e7faaf65e2cc64e5aba008e4cfba8ad2, type: 2}
   border: {fileID: 11400000, guid: d7be21f70d39d4d038ea627737cd9314, type: 2}
+  hidden: {fileID: 11400000, guid: f1fe78ef4f0234ef5a2fbc1798593bcf, type: 2}
+  desert_symbol: {fileID: 11400000, guid: 585bcd0135abb4023912f3aea4a466db, type: 2}
   gridSizeX: 10
   gridSizeZ: 10
 --- !u!4 &857111696
@@ -381,85 +382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334a34c48cca94268bdacec6daaa58c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1298648341
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3203859864759271233, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_Name
-      value: Object
-      objectReference: {fileID: 0}
-    - target: {fileID: 6693029144523565035, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 430e671ca453644c8aad8e0a73ff905b, type: 2}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648041903499247579, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7997145830782877611, guid: dea7c47b2e2414f06842553535340be2,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dea7c47b2e2414f06842553535340be2, type: 3}
 --- !u!1 &1605843001
 GameObject:
   m_ObjectHideFlags: 0

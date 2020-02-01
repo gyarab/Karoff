@@ -6,13 +6,18 @@ public class BoardSetup : MonoBehaviour
 {
     public GameObject cameraObject;
     public GameObject GridCell;
-    public Material testTile;
-    public Material logoTile;
-    public Material emptyTile;
+    public GameObject BuildingObject;
+
+    //public Material testTile;
+    //public Material logoTile;
+    //public Material emptyTile;
 
     public BiomData blank;
-    public BiomData starting;
+    public BiomData desert;
     public BiomData border;
+
+    public BuildingData hidden;
+    public BuildingData desert_symbol;
 
 
     public int gridSizeX = 3; //Grid of board + board border
@@ -92,18 +97,22 @@ public class BoardSetup : MonoBehaviour
         if(x == startX || x == -startX || z == startZ || z == -startZ) {    //sets boarders
             GridCell.GetComponent<Biome>().biomData = border;
 
-
             Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = GridCell.GetComponent<Biome>().biomData.Material;
         }
         else {  //sets regular cells
 
             if (z == startZ-1 || z == -(startZ - 1)) {
-                GridCell.GetComponent<Biome>().biomData = starting;
-                Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = GridCell.GetComponent<Biome>().biomData.Material;
+                //set starting biomes
+                BuildingObject.GetComponent<Building>().buildingData = desert_symbol;
+                GridCell.GetComponent<Biome>().biomData = desert;
+                Instantiate(BuildingObject, new Vector3(x, BuildingObject.GetComponent<Building>().buildingData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = BuildingObject.GetComponent<Building>().buildingData.Material;
+                Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material.color = GridCell.GetComponent<Biome>().biomData.Color;
             }
             else {
                 GridCell.GetComponent<Biome>().biomData = blank;
-                Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = GridCell.GetComponent<Biome>().biomData.Material;
+                BuildingObject.GetComponent<Building>().buildingData = hidden;
+                Instantiate(BuildingObject, new Vector3(x, BuildingObject.GetComponent<Building>().buildingData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().enabled = false;
+                Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material.color = GridCell.GetComponent<Biome>().biomData.Color;
 
             }
         }

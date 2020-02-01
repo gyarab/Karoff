@@ -106,4 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f46f16449b4416993dc00361276fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  biomData: {fileID: 0}
+  biomData: {fileID: 11400000, guid: d7be21f70d39d4d038ea627737cd9314, type: 2}
