@@ -106,4 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f7c1831452f4d9699adecfc6d01c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingData: {fileID: 11400000, guid: 585bcd0135abb4023912f3aea4a466db, type: 2}
+  buildingData: {fileID: 11400000, guid: f1fe78ef4f0234ef5a2fbc1798593bcf, type: 2}
+  setTurn: 0

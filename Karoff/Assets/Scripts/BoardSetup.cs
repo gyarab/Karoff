@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BoardSetup : MonoBehaviour
 {
+
     public GameObject cameraObject;
     public GameObject GridCell;
     public GameObject BuildingObject;
@@ -14,10 +15,19 @@ public class BoardSetup : MonoBehaviour
 
     public BiomData blank;
     public BiomData desert;
+    public BiomData forest;
+    public BiomData mountains;
+    public BiomData plains;
+    public BiomData snow;
+
     public BiomData border;
 
     public BuildingData hidden;
     public BuildingData desert_symbol;
+    public BuildingData forest_symbol;
+    public BuildingData mountains_symbol;
+    public BuildingData plains_symbol;
+    public BuildingData snow_symbol;
 
 
     public int gridSizeX = 3; //Grid of board + board border
@@ -30,7 +40,11 @@ public class BoardSetup : MonoBehaviour
     float startX;
     float startZ;
 
-    
+    int starting_counter = 0;
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +108,22 @@ public class BoardSetup : MonoBehaviour
 
     //sets cells of the board
     protected void setCell(float x, float z, float startX, float startZ){
-        if(x == startX || x == -startX || z == startZ || z == -startZ) {    //sets boarders
+
+        List<BiomData> biomeList = new List<BiomData>();
+        biomeList.Add(desert);
+        biomeList.Add(forest);
+        biomeList.Add(mountains);
+        biomeList.Add(plains);
+        biomeList.Add(snow);
+
+        List<BuildingData> buildingList = new List<BuildingData>();
+        buildingList.Add(desert_symbol);
+        buildingList.Add(forest_symbol);
+        buildingList.Add(mountains_symbol);
+        buildingList.Add(plains_symbol);
+        buildingList.Add(snow_symbol);
+
+        if (x == startX || x == -startX || z == startZ || z == -startZ) {    //sets boarders
             GridCell.GetComponent<Biome>().biomData = border;
 
             Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = GridCell.GetComponent<Biome>().biomData.Material;
@@ -102,11 +131,19 @@ public class BoardSetup : MonoBehaviour
         else {  //sets regular cells
 
             if (z == startZ-1 || z == -(startZ - 1)) {
-                //set starting biomes
-                BuildingObject.GetComponent<Building>().buildingData = desert_symbol;
-                GridCell.GetComponent<Biome>().biomData = desert;
+                //set starting biomes and symbols
+
+                if (starting_counter > biomeList.Count-1)
+                {
+                    starting_counter = 0;
+                }
+                //Debug.Log(biomeList[starting_counter].BiomName);
+
+                BuildingObject.GetComponent<Building>().buildingData = buildingList[starting_counter];
+                GridCell.GetComponent<Biome>().biomData = biomeList[starting_counter];
                 Instantiate(BuildingObject, new Vector3(x, BuildingObject.GetComponent<Building>().buildingData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material = BuildingObject.GetComponent<Building>().buildingData.Material;
                 Instantiate(GridCell, new Vector3(x, GridCell.GetComponent<Biome>().biomData.Y, z), Quaternion.identity).GetComponent<MeshRenderer>().material.color = GridCell.GetComponent<Biome>().biomData.Color;
+                starting_counter += 1;
             }
             else {
                 GridCell.GetComponent<Biome>().biomData = blank;

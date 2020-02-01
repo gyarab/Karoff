@@ -250,9 +250,17 @@ MonoBehaviour:
     type: 3}
   blank: {fileID: 11400000, guid: 23f435b9fa5ef478dac5ac8ccd08cb7e, type: 2}
   desert: {fileID: 11400000, guid: e7faaf65e2cc64e5aba008e4cfba8ad2, type: 2}
+  forest: {fileID: 11400000, guid: 9f81ad550522f41c9bfdad1923b3ac5f, type: 2}
+  mountains: {fileID: 11400000, guid: 7e10330a360fd4304b6d98022797d4b3, type: 2}
+  plains: {fileID: 11400000, guid: d7029897633744588ac4e47a6e71c596, type: 2}
+  snow: {fileID: 11400000, guid: 0004ad71bbc894943aae245c37c606e8, type: 2}
   border: {fileID: 11400000, guid: d7be21f70d39d4d038ea627737cd9314, type: 2}
   hidden: {fileID: 11400000, guid: f1fe78ef4f0234ef5a2fbc1798593bcf, type: 2}
   desert_symbol: {fileID: 11400000, guid: 585bcd0135abb4023912f3aea4a466db, type: 2}
+  forest_symbol: {fileID: 11400000, guid: 659af2c5462ac4aeba346aae286bc758, type: 2}
+  mountains_symbol: {fileID: 11400000, guid: 372e09da0d5104a2b809a2c3ccd4ee76, type: 2}
+  plains_symbol: {fileID: 11400000, guid: 3088cd7e5e6d3404b92eb33e30efff3b, type: 2}
+  snow_symbol: {fileID: 11400000, guid: d7b0e7af82fb44116a382a67929c2a36, type: 2}
   gridSizeX: 10
   gridSizeZ: 10
 --- !u!4 &857111696
@@ -297,7 +305,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -370,18 +377,6 @@ Transform:
   m_Father: {fileID: 1605843002}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334a34c48cca94268bdacec6daaa58c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1605843001
 GameObject:
   m_ObjectHideFlags: 0

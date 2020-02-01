@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef945cb970e63479ebd7d8748796220f, type: 3}
-  m_Name: 1_hidden
+  m_Name: 8_plains_symbol
   m_EditorClassIdentifier: 
-  buildingName: hidden
-  material: {fileID: 2100000, guid: b4de4e699eb99405f8688259a4442f40, type: 2}
-  status: 0
+  buildingName: plains
+  material: {fileID: 2100000, guid: 08e965bfbff0344689114ac457c511f5, type: 2}
+  status: 1
   bonus: 0
   y: 1

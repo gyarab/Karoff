@@ -103,7 +103,7 @@ public class CellListener : MonoBehaviour
 
     protected void Preview() //shows visually where you can place the same biome
     {
-        Debug.Log("preview");
+        //Debug.Log("preview");
         if (select == false)
         {
             VisualXPlus = Instantiate(GreenVisualCell, new Vector3(selectX + 1, GreenVisualCell.GetComponent<Biome>().biomData.Y, selectZ), Quaternion.identity);
@@ -119,7 +119,7 @@ public class CellListener : MonoBehaviour
 
     protected void Remove() //removes visual effect
     {
-        Debug.Log("remove");
+        //Debug.Log("remove");
         Destroy(VisualXPlus);
         Destroy(VisualZPlus);
         Destroy(VisualXMinus);
@@ -130,7 +130,7 @@ public class CellListener : MonoBehaviour
     protected bool nextCell() //checks if the second cell is next to selected if not selects it if its the same cancels and if it is nothing cancels everything
     {
         Remove();
-        Debug.Log("nextcell");
+        //Debug.Log("nextcell");
         if (hitInfo.transform.position.y == 0f)
         {
             if ((hitInfo.transform.position.z == selectZ + 1) && (hitInfo.transform.position.x == selectX))
