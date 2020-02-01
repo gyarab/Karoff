@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CellListener : MonoBehaviour
 {
+
     public GameObject GreenVisualCell;
     public Material borderTile;
     public BiomData starting;
@@ -50,17 +51,18 @@ public class CellListener : MonoBehaviour
         return false;
     }
 
-    protected bool IsBorder() {
-        Debug.Log("is border");
+    protected bool IsBorder()
+    { 
+        // Debug.Log("is border");
         if (hitInfo.transform.position.y == 0.75f) { //checks if it's not border
             return true;
         }
         return false;
     }
 
-    protected void Action() {
-        Debug.Log("action");
-        if (IsBorder() == false) {
+    protected void Action() { //does something if it's not border or ignores
+        // Debug.Log("action");
+        if (IsBorder() == false) { 
             if (select) {
                 Select();
                 Preview();
@@ -71,10 +73,10 @@ public class CellListener : MonoBehaviour
         }
     }
 
-    protected void Select()
+    protected void Select() //saves position and biome of clicked cell if cell is biome
     {
-        Debug.Log("Select");
-        if (hitInfo.transform.position.y == 0.5f) //check position
+        //Debug.Log("Select");
+        if (hitInfo.transform.position.y == 0.5f) 
         {
             selectX = hitInfo.transform.position.x;
             selectZ = hitInfo.transform.position.z;
@@ -86,11 +88,11 @@ public class CellListener : MonoBehaviour
         }
     }
 
-    protected void Place()
+    protected void Place() //moves up and gives biome to cell placed if cell is next to selected
     {
         select = true;
         if (nextCell()) {
-            Debug.Log("place");
+            //Debug.Log("place");
             hitInfo.transform.gameObject.GetComponent<Biome>().biomData = hitBiome;
             hitInfo.transform.gameObject.GetComponent<MeshRenderer>().material.color = hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Color;
             hitInfo.transform.position = new Vector3(hitInfo.transform.position.x, hitInfo.transform.gameObject.GetComponent<Biome>().biomData.Y, hitInfo.transform.position.z);
@@ -99,7 +101,7 @@ public class CellListener : MonoBehaviour
 
     }
 
-    protected void Preview()
+    protected void Preview() //shows visually where you can place the same biome
     {
         Debug.Log("preview");
         if (select == false)
@@ -115,7 +117,7 @@ public class CellListener : MonoBehaviour
         }
     }
 
-    protected void Remove() 
+    protected void Remove() //removes visual effect
     {
         Debug.Log("remove");
         Destroy(VisualXPlus);
@@ -125,7 +127,8 @@ public class CellListener : MonoBehaviour
 
     }
 
-    protected bool nextCell() {
+    protected bool nextCell() //checks if the second cell is next to selected if not selects it if its the same cancels and if it is nothing cancels everything
+    {
         Remove();
         Debug.Log("nextcell");
         if (hitInfo.transform.position.y == 0f)
@@ -170,10 +173,10 @@ public class CellListener : MonoBehaviour
             return false;
         }
     }
-
-
-
 }
+
+
+
 //jentak btw sem davam odkazy z kterych se cerpalo pri tvorbe 
 //https://answers.unity.com/questions/411793/selecting-a-game-object-with-a-mouse-click-on-it.html
 //https://www.raywenderlich.com/2826197-scriptableobject-tutorial-getting-started#toc-anchor-003
