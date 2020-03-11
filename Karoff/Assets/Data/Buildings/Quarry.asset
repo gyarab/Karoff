@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acbf9765582739469c353d656b9b280, type: 3}
+  m_Name: Quarry
+  m_EditorClassIdentifier: 
+  buildingName: Quarry
+  buildingIcon: {fileID: 21300000, guid: 451e92c9eac18e34ea52a0370b742213, type: 3}
+  prices: 01000000010000000200000000000000
+  possibleBiomes:
+  - {fileID: 11400000, guid: d11c4b04f18c20b4ba8f1d00dd37cea4, type: 2}
+  gain: 0000000000000000000000000200000000000000
