@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acbf9765582739469c353d656b9b280, type: 3}
+  m_Name: Oasis
+  m_EditorClassIdentifier: 
+  buildingName: Oasis
+  buildingIcon: {fileID: 21300000, guid: 06d1fa6327f1f764b9b40d53b88b2cfd, type: 3}
+  prices: 06000000020000000400000001000000
+  possibleBiomes:
+  - {fileID: 11400000, guid: aec1994601093df4d83247e4267c701c, type: 2}
+  gain: 0000000004000000000000000000000000000000
