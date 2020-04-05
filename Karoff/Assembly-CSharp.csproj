@@ -71,7 +71,9 @@
     <Compile Include="Assets\Scripts\BuildingSpace.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\MapBuilder.cs" />
+    <Compile Include="Assets\Scripts\PlayerID.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\SyncData.cs" />
     <Compile Include="Assets\Scripts\TurnManager.cs" />
     <Compile Include="Assets\Scripts\WinManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
@@ -95,6 +97,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+      <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -110,6 +115,9 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+      <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
@@ -124,12 +132,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>/Volumes/ExtraSD/Unity/Karoff/Karoff/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>

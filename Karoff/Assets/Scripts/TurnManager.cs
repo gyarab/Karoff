@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
-public class TurnManager : MonoBehaviour
+public class TurnManager : NetworkBehaviour
 {
-    public string currentTurn;
+    [SyncVar] public string currentTurn;
+    [SyncVar] string PlayerHost;
 
     public Color redColor;
     public Color blueColor;
@@ -23,7 +26,7 @@ public class TurnManager : MonoBehaviour
     private ResourceManager rm;
     private WinManager wm;
 
-    public int turnNumber;
+    [SyncVar] public int turnNumber;
 
     private void Awake()
     {
@@ -34,6 +37,14 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
+
+
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name == "") {
+            Debug.Log("scena");
+        }
+
+
         currentTurn = "Red";
         mc.backgroundColor = redColor;
         buildingsMenuBackground.color = redDarkColor;
@@ -51,6 +62,34 @@ public class TurnManager : MonoBehaviour
             b.startingTile = true;
         }
     }
+
+    public int GetTurnNumber()
+    {
+        return turnNumber;
+    }
+
+    public string GetTurnColor() {
+        return currentTurn;
+    }
+
+    public void SetHost(string id)
+    {
+        //Debug.Log(SceneManager.GetActiveScene().name);
+        //if (SceneManager.GetActiveScene().name == "") {
+        //    Debug.Log("scena");
+        //}
+        PlayerHost = id;
+    }
+
+    public string GetHost()
+    {
+
+        return PlayerHost;
+    }
+
+
+
+
 
     public void ChangeTurn()
     {

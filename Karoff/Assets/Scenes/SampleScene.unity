@@ -4047,6 +4047,11 @@ PrefabInstance:
       propertyPath: startingTile
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 512863584883437315, guid: 5a9e4d80ad9eb2f4c99d14709d3b967d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2827716434772544365, guid: 5a9e4d80ad9eb2f4c99d14709d3b967d,
         type: 3}
       propertyPath: board
