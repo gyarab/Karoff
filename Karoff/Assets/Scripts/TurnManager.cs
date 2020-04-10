@@ -7,8 +7,11 @@ using UnityEngine.Networking;
 
 public class TurnManager : NetworkBehaviour
 {
+
+
     [SyncVar] public string currentTurn;
-    [SyncVar] string PlayerHost;
+    [SyncVar] public string PlayerHost;
+    [SyncVar] public int turnNumber;
 
     public Color redColor;
     public Color blueColor;
@@ -26,10 +29,13 @@ public class TurnManager : NetworkBehaviour
     private ResourceManager rm;
     private WinManager wm;
 
-    [SyncVar] public int turnNumber;
+
 
     private void Awake()
     {
+
+
+
         mc = Camera.main;
         rm = gameObject.GetComponent<ResourceManager>();
         wm = FindObjectOfType<WinManager>();
@@ -37,7 +43,7 @@ public class TurnManager : NetworkBehaviour
 
     private void Start()
     {
-
+       
 
         Debug.Log(SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name == "") {
@@ -63,21 +69,12 @@ public class TurnManager : NetworkBehaviour
         }
     }
 
-    public int GetTurnNumber()
-    {
-        return turnNumber;
-    }
 
-    public string GetTurnColor() {
-        return currentTurn;
-    }
+
 
     public void SetHost(string id)
     {
-        //Debug.Log(SceneManager.GetActiveScene().name);
-        //if (SceneManager.GetActiveScene().name == "") {
-        //    Debug.Log("scena");
-        //}
+       
         PlayerHost = id;
     }
 
@@ -133,4 +130,7 @@ public class TurnManager : NetworkBehaviour
 
         }
     }
+
+
 }
+

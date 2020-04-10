@@ -1241,6 +1241,7 @@ GameObject:
   - component: {fileID: 954947079}
   - component: {fileID: 954947080}
   - component: {fileID: 954947081}
+  - component: {fileID: 954947082}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1288,13 +1289,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurn: 
+  turnNumber: 0
   redColor: {r: 0.9716981, g: 0.5821022, b: 0.5821022, a: 1}
   blueColor: {r: 0.6745283, g: 0.6745283, b: 1, a: 1}
   blueDarkColor: {r: 0.18209325, g: 0.18209325, b: 0.41509432, a: 1}
   redDarkColor: {r: 0.4245283, g: 0.18623175, b: 0.18623175, a: 1}
   buildingsMenuBackground: {fileID: 1081584601}
   startingBiomes: []
-  turnNumber: 0
 --- !u!114 &954947078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,6 +1392,39 @@ MonoBehaviour:
   numberOfTurns: -1
   numberOfPoints: 25
   goal: 
+--- !u!114 &954947082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954947074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!1 &1081584599
 GameObject:
   m_ObjectHideFlags: 0

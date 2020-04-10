@@ -1,23 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class MapBuilder : MonoBehaviour
+public class MapBuilder : NetworkBehaviour
 {
     public float minX;
     public float maxX;
     public float minY;
     public float maxY;
 
+    
     public GameObject[] tiles;
     public List<Vector2> coords;
     
 
     private void Start()
     {
-        foreach(GameObject g in tiles)
+
+        if (SceneManager.GetActiveScene().name == "OnlineScene")
         {
-            g.transform.position = FindCoords();
+
+        }
+
+    
+        else
+        {
+            foreach (GameObject g in tiles)
+            {
+                g.transform.position = FindCoords();
+            }
         }
     }
 

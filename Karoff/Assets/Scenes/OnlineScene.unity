@@ -727,7 +727,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89ca4545aff7a694fa935d42fce7201e, type: 3}
   m_Name: 
@@ -1156,7 +1156,7 @@ GameObject:
   - component: {fileID: 954947082}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1201,13 +1201,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurn: 
+  PlayerHost: 
+  turnNumber: 0
   redColor: {r: 0.9716981, g: 0.5821022, b: 0.5821022, a: 1}
   blueColor: {r: 0.6745283, g: 0.6745283, b: 1, a: 1}
   blueDarkColor: {r: 0.18209325, g: 0.18209325, b: 0.41509432, a: 1}
   redDarkColor: {r: 0.4245283, g: 0.18623175, b: 0.18623175, a: 1}
   buildingsMenuBackground: {fileID: 1081584601}
   startingBiomes: []
-  turnNumber: 0
 --- !u!114 &954947078
 MonoBehaviour:
   m_ObjectHideFlags: 0
