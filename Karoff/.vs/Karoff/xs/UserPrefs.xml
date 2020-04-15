@@ -1,16 +1,21 @@
 ﻿<Properties StartupConfiguration="{DCEB9B97-5B5D-E14E-CCD5-16652F6A5267}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MapBuilder.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MultiplayerScripts/PlayerCommands.cs">
     <Files>
-      <File FileName="Assets/Scripts/BuildingSpace.cs" Line="16" Column="38" />
-      <File FileName="Assets/Scripts/MapBuilder.cs" Line="26" Column="14" />
-      <File FileName="Assets/Scripts/BiomeBuilding.cs" Line="11" Column="6" />
-      <File FileName="Assets/Scripts/Biome.cs" Line="5" Column="31" />
-      <File FileName="Assets/Scripts/BuildingDisplay.cs" Line="25" Column="5" />
-      <File FileName="Assets/Scripts/SyncData.cs" Line="9" Column="4" />
-      <File FileName="Assets/Scripts/PlayerID.cs" Line="6" Column="22" />
-      <File FileName="Assets/Scripts/BuildingManager.cs" Line="22" Column="44" />
-      <File FileName="Assets/Scripts/TurnManager.cs" Line="34" Column="11" />
+      <File FileName="Assets/MultiplayerScripts/MultiplayerBuildingSpace.cs" Line="10" Column="2" />
+      <File FileName="Assets/MultiplayerScripts/MultiplayerTurnManager.cs" Line="126" Column="1" />
+      <File FileName="Assets/Scripts/MapBuilder.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/BuildingSpace.cs" Line="52" Column="27" />
+      <File FileName="Assets/Scripts/Biome.cs" Line="39" Column="25" />
+      <File FileName="Assets/Scripts/BuildingManager.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/BiomeBuilding.cs" Line="29" Column="1" />
+      <File FileName="Assets/Scripts/BiomeType.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/Building.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BuildingDisplay.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraMovement.cs" Line="54" Column="1" />
+      <File FileName="Assets/Scripts/ResourceManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/WinManager.cs" Line="1" Column="17" />
+      <File FileName="Assets/MultiplayerScripts/PlayerCommands.cs" Line="115" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

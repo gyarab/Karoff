@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Networking;
 
-public class TurnManager : NetworkBehaviour
+
+public class TurnManager : MonoBehaviour
 {
 
 
-    [SyncVar] public string currentTurn;
-    [SyncVar] public string PlayerHost;
-    [SyncVar] public int turnNumber;
+    public string currentTurn;
+  
+    public int turnNumber;
 
     public Color redColor;
     public Color blueColor;
@@ -46,9 +46,6 @@ public class TurnManager : NetworkBehaviour
        
 
         Debug.Log(SceneManager.GetActiveScene().name);
-        if (SceneManager.GetActiveScene().name == "") {
-            Debug.Log("scena");
-        }
 
 
         currentTurn = "Red";
@@ -70,36 +67,12 @@ public class TurnManager : NetworkBehaviour
     }
 
 
-
-
-    public void SetHost(string id)
-    {
-       
-        PlayerHost = id;
-    }
-
-    public string GetHost()
-    {
-
-        return PlayerHost;
-    }
-
-
-
-
-
     public void ChangeTurn()
     {
         rm.EndTurnResources();
         turnNumber++;
-        
-        if(wm.goal == "Points")
-        {
-            wm.CheckPoints();
-        } else if (wm.goal == "Turns")
-        {
-            wm.CheckTurns();
-        }
+
+        WinCheck();
 
         if (currentTurn == "Red")
         {
@@ -130,7 +103,18 @@ public class TurnManager : NetworkBehaviour
 
         }
     }
-
+        
+    protected void WinCheck() {
+        if (wm.goal == "Points")
+        {
+            wm.CheckPoints();
+        }
+        else if (wm.goal == "Turns")
+        {
+            wm.CheckTurns();
+        }
+    }
 
 }
+
 

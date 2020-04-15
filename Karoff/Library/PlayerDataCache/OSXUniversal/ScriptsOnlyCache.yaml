@@ -10,8 +10,16 @@ ScriptsOnlyBuild:
     - BuildingSpace
     - CameraMovement
     - MapBuilder
+    - MultiplayerBiome
+    - MultiplayerBiomeBuilding
+    - MultiplayerBuildingSpace
+    - MultiplayerCameraMovement
+    - MultiplayerMapBuilder
+    - MultiplayerTurnManager
+    - PlayerCommands
     - PlayerID
     - ResourceManager
+    - SyncTile
     - TurnManager
     - WinManager
     Unity.2D.Tilemap.Editor.dll:
@@ -52,6 +60,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Networking.NetworkIdentity
     - UnityEngine.Networking.NetworkManager
     - UnityEngine.Networking.NetworkManagerHUD
+    - UnityEngine.Networking.NetworkTransform
   sceneClasses:
     Assets/Scenes/MenuScene.unity:
     - Class: 1
@@ -77,27 +86,33 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11382}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11920}
+      Script: {instanceID: 11924}
     - Class: 114
-      Script: {instanceID: 12222}
+      Script: {instanceID: 12228}
     - Class: 114
-      Script: {instanceID: 12602}
+      Script: {instanceID: 12608}
     - Class: 114
-      Script: {instanceID: 12634}
+      Script: {instanceID: 12640}
     - Class: 114
-      Script: {instanceID: 12652}
+      Script: {instanceID: 12658}
     - Class: 114
-      Script: {instanceID: 12662}
+      Script: {instanceID: 13146}
     - Class: 114
-      Script: {instanceID: 13068}
+      Script: {instanceID: 13324}
     - Class: 114
-      Script: {instanceID: 13132}
+      Script: {instanceID: 16198}
     - Class: 114
-      Script: {instanceID: 13310}
+      Script: {instanceID: 16202}
+    - Class: 114
+      Script: {instanceID: 16204}
+    - Class: 114
+      Script: {instanceID: 16206}
+    - Class: 114
+      Script: {instanceID: 16210}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -108,7 +123,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
-    Assets/Scenes/OnlineScene.unity:
+    Assets/Scenes/MultiplayerScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -128,58 +143,36 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11168}
+      Script: {instanceID: 11166}
     - Class: 114
-      Script: {instanceID: 11194}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11382}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11418}
+      Script: {instanceID: 12608}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 12954}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 16194}
     - Class: 114
-      Script: {instanceID: 11886}
+      Script: {instanceID: 16196}
     - Class: 114
-      Script: {instanceID: 11940}
+      Script: {instanceID: 16198}
     - Class: 114
-      Script: {instanceID: 12104}
+      Script: {instanceID: 16204}
     - Class: 114
-      Script: {instanceID: 12372}
+      Script: {instanceID: 16206}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 16208}
     - Class: 114
-      Script: {instanceID: 12492}
-    - Class: 114
-      Script: {instanceID: 12602}
-    - Class: 114
-      Script: {instanceID: 12634}
-    - Class: 114
-      Script: {instanceID: 12844}
-    - Class: 114
-      Script: {instanceID: 12868}
-    - Class: 114
-      Script: {instanceID: 12940}
-    - Class: 114
-      Script: {instanceID: 13046}
-    - Class: 114
-      Script: {instanceID: 13068}
-    - Class: 114
-      Script: {instanceID: 13210}
-    - Class: 114
-      Script: {instanceID: 13384}
+      Script: {instanceID: 16212}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
       Script: {instanceID: 0}
     - Class: 223
       Script: {instanceID: 0}
@@ -205,13 +198,11 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11168}
+      Script: {instanceID: 11166}
     - Class: 114
-      Script: {instanceID: 11194}
+      Script: {instanceID: 11192}
     - Class: 114
-      Script: {instanceID: 11382}
-    - Class: 114
-      Script: {instanceID: 11418}
+      Script: {instanceID: 11416}
     - Class: 114
       Script: {instanceID: 11772}
     - Class: 114
@@ -219,37 +210,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11782}
     - Class: 114
-      Script: {instanceID: 11886}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 11940}
+      Script: {instanceID: 11944}
     - Class: 114
-      Script: {instanceID: 12104}
+      Script: {instanceID: 12110}
     - Class: 114
-      Script: {instanceID: 12134}
+      Script: {instanceID: 12140}
     - Class: 114
-      Script: {instanceID: 12372}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 12492}
+      Script: {instanceID: 12498}
     - Class: 114
-      Script: {instanceID: 12602}
+      Script: {instanceID: 12608}
     - Class: 114
-      Script: {instanceID: 12634}
+      Script: {instanceID: 12640}
     - Class: 114
-      Script: {instanceID: 12844}
+      Script: {instanceID: 12852}
     - Class: 114
-      Script: {instanceID: 12868}
+      Script: {instanceID: 12876}
     - Class: 114
-      Script: {instanceID: 12940}
+      Script: {instanceID: 12954}
     - Class: 114
-      Script: {instanceID: 13046}
+      Script: {instanceID: 13060}
     - Class: 114
-      Script: {instanceID: 13068}
+      Script: {instanceID: 13082}
     - Class: 114
-      Script: {instanceID: 13210}
+      Script: {instanceID: 13224}
     - Class: 114
-      Script: {instanceID: 13384}
+      Script: {instanceID: 13398}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -315,12 +306,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SyncData
   - hash:
       serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
@@ -461,7 +446,7 @@ ScriptsOnlyBuild:
     className: BuildingSpace
   - hash:
       serializedVersion: 2
-      Hash: 3ca7e3a3e26b288a8a7195aecd3b0f21
+      Hash: 723a02314c5b8649492ace0d15802921
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TurnManager
@@ -657,12 +642,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: Physics2DRaycaster
-  - hash:
-      serializedVersion: 2
-      Hash: d93f4f4c1fd32dcdaf045d077e643698
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerID
   - hash:
       serializedVersion: 2
       Hash: 318c6c13a19c9fac98135ae14889de1b
@@ -861,9 +840,64 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 8f5e7d0478a235b7c5d2a5dc3e4e8261
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerCameraMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 30dd19e415d4f95998bb76dfe5434231
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerTurnManager
+  - hash:
+      serializedVersion: 2
+      Hash: 59d2645ee5d98f9f405a039332dd5366
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerBiome
+  - hash:
+      serializedVersion: 2
+      Hash: 5ff578ae011af8c98b41ad956408de06
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerCommands
+  - hash:
+      serializedVersion: 2
+      Hash: 6e22e851b454860c8f0ddf4689297a4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerBuildingSpace
+  - hash:
+      serializedVersion: 2
+      Hash: 75e85224e00967b395bdfd0e3c6c4530
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SyncTile
+  - hash:
+      serializedVersion: 2
+      Hash: c02ed635fda9ce9ce155f7c981862410
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerBiomeBuilding
+  - hash:
+      serializedVersion: 2
+      Hash: d93f4f4c1fd32dcdaf045d077e643698
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerID
+  - hash:
+      serializedVersion: 2
+      Hash: 02c0d6bca35320eb03f47320d3c8be91
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerMapBuilder
   platform: 2
   scenePathNames:
   - Assets/Scenes/MenuScene.unity
+  - Assets/Scenes/MultiplayerScene.unity
   - Assets/Scenes/SampleScene.unity
-  - Assets/Scenes/OnlineScene.unity
-  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/GetHostPlayer.app
+  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Multiplayer Without Score And
+    Buildings - alpha 0.1a.app

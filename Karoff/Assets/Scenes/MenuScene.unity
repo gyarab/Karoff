@@ -198,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389644796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -243,14 +243,14 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1766731396776878342, guid: 0ac4f7350e9774584baf53b51b1a2cfc,
+  m_PlayerPrefab: {fileID: 7682286869586274645, guid: 020216c63f8794c99a9806debcd2bd4b,
     type: 3}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: MenuScene
-  m_OnlineScene: OnlineScene
+  m_OnlineScene: MultiplayerScene
   m_SpawnPrefabs:
-  - {fileID: 2960170615361171568, guid: 5a9e4d80ad9eb2f4c99d14709d3b967d, type: 3}
+  - {fileID: 1387138160306255839, guid: 1d389b27043244585be4e978874724d6, type: 3}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   matchName: default
-  matchSize: 4
+  matchSize: 2
   isNetworkActive: 0
   matchMaker: {fileID: 0}
 --- !u!4 &575897958

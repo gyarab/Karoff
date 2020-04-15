@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Oasis
   buildingIcon: {fileID: 21300000, guid: 06d1fa6327f1f764b9b40d53b88b2cfd, type: 3}
-  prices: 06000000020000000400000001000000
+  prices: 06000000020000000200000001000000
   possibleBiomes:
   - {fileID: 11400000, guid: aec1994601093df4d83247e4267c701c, type: 2}
   gain: 0000000004000000000000000000000000000000

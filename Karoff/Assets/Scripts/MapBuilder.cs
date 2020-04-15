@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.Networking;
+using UnityEngine;
 
-public class MapBuilder : NetworkBehaviour
+
+public class MapBuilder : MonoBehaviour
 {
     public float minX;
     public float maxX;
@@ -19,19 +20,13 @@ public class MapBuilder : NetworkBehaviour
     private void Start()
     {
 
-        if (SceneManager.GetActiveScene().name == "OnlineScene")
-        {
-
-        }
-
     
-        else
-        {
+       
             foreach (GameObject g in tiles)
             {
                 g.transform.position = FindCoords();
             }
-        }
+        
     }
 
     public Vector2 FindCoords()

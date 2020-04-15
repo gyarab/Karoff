@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Barracks
   buildingIcon: {fileID: 21300000, guid: 506a1d75922405d4b88516939eb6e1ed, type: 3}
-  prices: 19000000190000001900000019000000
+  prices: 1900000019000000190000001900000019000000
   possibleBiomes:
   - {fileID: 11400000, guid: aec1994601093df4d83247e4267c701c, type: 2}
   - {fileID: 11400000, guid: 499938ffe75978f4db66e02a5b3256ec, type: 2}
