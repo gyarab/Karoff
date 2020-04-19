@@ -8,17 +8,23 @@ ScriptsOnlyBuild:
     - BuildingDisplay
     - BuildingManager
     - BuildingSpace
+    - BuildingSpacesColor
     - CameraMovement
     - MapBuilder
     - MultiplayerBiome
     - MultiplayerBiomeBuilding
+    - MultiplayerBuildingDisplay
+    - MultiplayerBuildingManager
     - MultiplayerBuildingSpace
     - MultiplayerCameraMovement
     - MultiplayerMapBuilder
+    - MultiplayerResourceManager
     - MultiplayerTurnManager
+    - MultiplayerWinManager
     - PlayerCommands
     - PlayerID
     - ResourceManager
+    - SyncResources
     - SyncTile
     - TurnManager
     - WinManager
@@ -86,33 +92,37 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11380}
+      Script: {instanceID: 11372}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 11924}
+      Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 12608}
+      Script: {instanceID: 11834}
     - Class: 114
-      Script: {instanceID: 12640}
+      Script: {instanceID: 11884}
     - Class: 114
-      Script: {instanceID: 12658}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 13146}
+      Script: {instanceID: 12116}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 12234}
     - Class: 114
-      Script: {instanceID: 16198}
+      Script: {instanceID: 12450}
     - Class: 114
-      Script: {instanceID: 16202}
+      Script: {instanceID: 12620}
     - Class: 114
-      Script: {instanceID: 16204}
+      Script: {instanceID: 12652}
     - Class: 114
-      Script: {instanceID: 16206}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 16210}
+      Script: {instanceID: 13150}
+    - Class: 114
+      Script: {instanceID: 13252}
+    - Class: 114
+      Script: {instanceID: 13332}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -145,34 +155,70 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11166}
     - Class: 114
-      Script: {instanceID: 11380}
+      Script: {instanceID: 11312}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 12608}
+      Script: {instanceID: 11372}
     - Class: 114
-      Script: {instanceID: 12954}
+      Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 16194}
+      Script: {instanceID: 11420}
     - Class: 114
-      Script: {instanceID: 16196}
+      Script: {instanceID: 11436}
     - Class: 114
-      Script: {instanceID: 16198}
+      Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 16204}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 16206}
+      Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 16208}
+      Script: {instanceID: 11884}
     - Class: 114
-      Script: {instanceID: 16212}
+      Script: {instanceID: 11896}
+    - Class: 114
+      Script: {instanceID: 11936}
+    - Class: 114
+      Script: {instanceID: 12116}
+    - Class: 114
+      Script: {instanceID: 12146}
+    - Class: 114
+      Script: {instanceID: 12322}
+    - Class: 114
+      Script: {instanceID: 12386}
+    - Class: 114
+      Script: {instanceID: 12450}
+    - Class: 114
+      Script: {instanceID: 12498}
+    - Class: 114
+      Script: {instanceID: 12620}
+    - Class: 114
+      Script: {instanceID: 12652}
+    - Class: 114
+      Script: {instanceID: 12796}
+    - Class: 114
+      Script: {instanceID: 12886}
+    - Class: 114
+      Script: {instanceID: 12958}
+    - Class: 114
+      Script: {instanceID: 13064}
+    - Class: 114
+      Script: {instanceID: 13262}
+    - Class: 114
+      Script: {instanceID: 13406}
+    - Class: 114
+      Script: {instanceID: 13488}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
       Script: {instanceID: 0}
     - Class: 223
       Script: {instanceID: 0}
@@ -202,45 +248,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11192}
     - Class: 114
-      Script: {instanceID: 11416}
-    - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11420}
     - Class: 114
       Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11784}
     - Class: 114
-      Script: {instanceID: 11890}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 11944}
+      Script: {instanceID: 11896}
     - Class: 114
-      Script: {instanceID: 12110}
+      Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 12140}
+      Script: {instanceID: 12116}
     - Class: 114
-      Script: {instanceID: 12378}
+      Script: {instanceID: 12146}
     - Class: 114
-      Script: {instanceID: 12412}
+      Script: {instanceID: 12386}
     - Class: 114
-      Script: {instanceID: 12498}
+      Script: {instanceID: 12420}
     - Class: 114
-      Script: {instanceID: 12608}
+      Script: {instanceID: 12510}
     - Class: 114
-      Script: {instanceID: 12640}
+      Script: {instanceID: 12620}
     - Class: 114
-      Script: {instanceID: 12852}
+      Script: {instanceID: 12652}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 12862}
     - Class: 114
-      Script: {instanceID: 12954}
+      Script: {instanceID: 12886}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 12958}
     - Class: 114
-      Script: {instanceID: 13082}
+      Script: {instanceID: 13064}
     - Class: 114
-      Script: {instanceID: 13224}
+      Script: {instanceID: 13086}
     - Class: 114
-      Script: {instanceID: 13398}
+      Script: {instanceID: 13228}
+    - Class: 114
+      Script: {instanceID: 13406}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -302,10 +348,22 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 8f5e7d0478a235b7c5d2a5dc3e4e8261
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerCameraMovement
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 6b23b70bfeb9b0acb8837ecb23c8c475
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerBuildingManager
   - hash:
       serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
@@ -318,6 +376,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: 25c391c825ebcd0d3d9622edd606cb84
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BuildingSpacesColor
   - hash:
       serializedVersion: 2
       Hash: 499fd23433e68e265d153aa6b95d0047
@@ -354,6 +418,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 5caa693160ea3fea5f852580f95f7f21
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerTurnManager
   - hash:
       serializedVersion: 2
       Hash: 234235b9fb07320d11497e08a726cc56
@@ -396,6 +466,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 59d2645ee5d98f9f405a039332dd5366
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerBiome
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -458,6 +534,18 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: 304df058b80935b0a4f028ea34e509e9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerCommands
+  - hash:
+      serializedVersion: 2
+      Hash: b127819aea77525ce6e74f3ae844de6f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerBuildingSpace
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -474,6 +562,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SyncResources
   - hash:
       serializedVersion: 2
       Hash: 8f5e7d0478a235b7c5d2a5dc3e4e8261
@@ -554,6 +648,12 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
+      Hash: a0419eff187b23a865313b9468bf99ff
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerWinManager
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -578,10 +678,22 @@ ScriptsOnlyBuild:
     className: BiomeBuilding
   - hash:
       serializedVersion: 2
+      Hash: 61eea5bc9fec3f3fe5e5d9ddc8480688
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SyncTile
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: ef6778215265f362c2071eaaa1bec393
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerBuildingDisplay
   - hash:
       serializedVersion: 2
       Hash: 02c0d6bca35320eb03f47320d3c8be91
@@ -654,6 +766,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 75ac93e95bb5d5d6f9c4de1173304721
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerBiomeBuilding
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -732,6 +850,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WinManager
+  - hash:
+      serializedVersion: 2
+      Hash: d93f4f4c1fd32dcdaf045d077e643698
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerID
+  - hash:
+      serializedVersion: 2
+      Hash: a91ed18e50f544cd712cd9b62884dc01
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MultiplayerResourceManager
   - hash:
       serializedVersion: 2
       Hash: df434544c9f7b33d1cc7e635b180d279
@@ -842,54 +972,6 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 8f5e7d0478a235b7c5d2a5dc3e4e8261
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MultiplayerCameraMovement
-  - hash:
-      serializedVersion: 2
-      Hash: 30dd19e415d4f95998bb76dfe5434231
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MultiplayerTurnManager
-  - hash:
-      serializedVersion: 2
-      Hash: 59d2645ee5d98f9f405a039332dd5366
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MultiplayerBiome
-  - hash:
-      serializedVersion: 2
-      Hash: 5ff578ae011af8c98b41ad956408de06
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerCommands
-  - hash:
-      serializedVersion: 2
-      Hash: 6e22e851b454860c8f0ddf4689297a4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MultiplayerBuildingSpace
-  - hash:
-      serializedVersion: 2
-      Hash: 75e85224e00967b395bdfd0e3c6c4530
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SyncTile
-  - hash:
-      serializedVersion: 2
-      Hash: c02ed635fda9ce9ce155f7c981862410
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MultiplayerBiomeBuilding
-  - hash:
-      serializedVersion: 2
-      Hash: d93f4f4c1fd32dcdaf045d077e643698
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerID
-  - hash:
-      serializedVersion: 2
       Hash: 02c0d6bca35320eb03f47320d3c8be91
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -899,5 +981,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/MultiplayerScene.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Multiplayer Without Score And
-    Buildings - alpha 0.1a.app
+  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Multiplayer test  - alpha 0.2a.app

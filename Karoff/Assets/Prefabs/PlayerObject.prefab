@@ -97,3 +97,16 @@ MonoBehaviour:
   Forest: {fileID: 11400000, guid: 499938ffe75978f4db66e02a5b3256ec, type: 2}
   Mountains: {fileID: 11400000, guid: d11c4b04f18c20b4ba8f1d00dd37cea4, type: 2}
   Snow: {fileID: 11400000, guid: 81745ea04ab40bc4c8daf2b069f6a64a, type: 2}
+  MBB: {fileID: 0}
+  buildings:
+  - {fileID: 11400000, guid: 36c5bdb67efad5c41ae8a0d61b5d09a9, type: 2}
+  - {fileID: 11400000, guid: 25808c1ccaefd844597af309d47186f6, type: 2}
+  - {fileID: 11400000, guid: 3591bcb4340e06346a1e696f96b834f1, type: 2}
+  - {fileID: 11400000, guid: 3c09d09acabf44f4abe64ab94c812533, type: 2}
+  - {fileID: 11400000, guid: 5bc03435a14f62648992d1b8f1429530, type: 2}
+  - {fileID: 11400000, guid: fd526238138f2f04596a3a264913c3d3, type: 2}
+  - {fileID: 11400000, guid: bc64d99c08b3bf442b9a021ea47de98f, type: 2}
+  - {fileID: 11400000, guid: b3cb48e957d92a94caca9b9363dc9e23, type: 2}
+  - {fileID: 11400000, guid: 17d7227fecaa8c742bf110c82736488c, type: 2}
+  - {fileID: 11400000, guid: fa0b891f1bfe6f5409bcdba26a7ef2f9, type: 2}
+  bu: {fileID: 0}

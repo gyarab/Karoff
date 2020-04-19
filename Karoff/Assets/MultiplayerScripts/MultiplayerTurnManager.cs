@@ -21,15 +21,15 @@ public class MultiplayerTurnManager : NetworkBehaviour
 
 
     private Camera mc;
-    //private ResourceManager rm;
-    //private WinManager wm;
+    public MultiplayerResourceManager rm;
+    public MultiplayerWinManager wm;
 
-    
+
     private void Awake()
     {
 
         mc = Camera.main;
-        //rm = gameObject.GetComponent<ResourceManager>();
+        //rm = gameObject.GetComponent<MultiplayerResourceManager>();
         //wm = FindObjectOfType<WinManager>();
     }
 
@@ -47,16 +47,16 @@ public class MultiplayerTurnManager : NetworkBehaviour
     public void SetTurn()
     {
 
-
-        //rm.EndTurnResources();
+        Debug.Log(rm);
+        rm.EndTurnResources();
         turn += 1;
 
-        //WinCheck();
+        WinCheck();
         if (currentTurn == "Red" && turn%2!=0)
             {
                 currentTurn = "Blue";
                 mc.backgroundColor = blueColor;
-                //buildingsMenuBackground.color = blueDarkColor;
+                buildingsMenuBackground.color = blueDarkColor;
 
                 /*
                 gainBackground.color = blueDarkColor;
@@ -71,7 +71,7 @@ public class MultiplayerTurnManager : NetworkBehaviour
             {
                 currentTurn = "Red";
                 mc.backgroundColor = redColor;
-                //buildingsMenuBackground.color = redDarkColor;
+                buildingsMenuBackground.color = redDarkColor;
 
                 /*gainBackground.color = redDarkColor;
 
@@ -96,28 +96,30 @@ public class MultiplayerTurnManager : NetworkBehaviour
         {
             currentTurn = "Red";
             mc.backgroundColor = redColor;
+            buildingsMenuBackground.color = redDarkColor;
         }
         else {
             currentTurn = "Blue";
             mc.backgroundColor = blueColor;
+            buildingsMenuBackground.color = blueDarkColor;
         }
        
-        //buildingsMenuBackground.color = redDarkColor;   
+
 
     }
 
 
-    //protected void WinCheck()
-    //{
-    //    if (wm.goal == "Points")
-    //    {
-    //        wm.CheckPoints();
-    //    }
-    //    else if (wm.goal == "Turns")
-    //    {
-    //        wm.CheckTurns();
-    //    }
-    //}
+    protected void WinCheck()
+    {
+        if (wm.goal == "Points")
+        {
+            wm.CheckPoints();
+        }
+        else if (wm.goal == "Turns")
+        {
+            wm.CheckTurns();
+        }
+    }
 
     }
 

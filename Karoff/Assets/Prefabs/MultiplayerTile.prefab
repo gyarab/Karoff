@@ -287,6 +287,19 @@ MonoBehaviour:
   o: {fileID: 1387138160306255839}
   bt: 
   sprite: {fileID: 0}
+  buildings:
+  - {fileID: 11400000, guid: fa0b891f1bfe6f5409bcdba26a7ef2f9, type: 2}
+  - {fileID: 11400000, guid: 17d7227fecaa8c742bf110c82736488c, type: 2}
+  - {fileID: 11400000, guid: b3cb48e957d92a94caca9b9363dc9e23, type: 2}
+  - {fileID: 11400000, guid: bc64d99c08b3bf442b9a021ea47de98f, type: 2}
+  - {fileID: 11400000, guid: fd526238138f2f04596a3a264913c3d3, type: 2}
+  - {fileID: 11400000, guid: 5bc03435a14f62648992d1b8f1429530, type: 2}
+  - {fileID: 11400000, guid: 3c09d09acabf44f4abe64ab94c812533, type: 2}
+  - {fileID: 11400000, guid: 3591bcb4340e06346a1e696f96b834f1, type: 2}
+  - {fileID: 11400000, guid: 36c5bdb67efad5c41ae8a0d61b5d09a9, type: 2}
+  - {fileID: 11400000, guid: 25808c1ccaefd844597af309d47186f6, type: 2}
+  bu: {fileID: 0}
+  spr: 
   starting: 0
 --- !u!1 &1757166878978200115
 GameObject:
@@ -300,6 +313,7 @@ GameObject:
   - component: {fileID: 2906969098459807117}
   - component: {fileID: 2556365043171997534}
   - component: {fileID: 1465003020165755428}
+  - component: {fileID: 1888841852536895604}
   m_Layer: 0
   m_Name: North
   m_TagString: Untagged
@@ -384,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1387138160306255839}
+  clickable: 0
 --- !u!61 &1465003020165755428
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -410,6 +425,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1888841852536895604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757166878978200115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705384a15294747edbd5ec734110f4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2571398989420305080
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +484,7 @@ GameObject:
   - component: {fileID: 1255054610417434323}
   - component: {fileID: 4953292785822495697}
   - component: {fileID: 3772897379895745969}
+  - component: {fileID: 2221582314973253613}
   m_Layer: 0
   m_Name: South
   m_TagString: Untagged
@@ -540,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1387138160306255839}
+  clickable: 0
 --- !u!61 &3772897379895745969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -566,6 +596,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2221582314973253613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916712537975777282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705384a15294747edbd5ec734110f4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4845421213114725089
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +621,7 @@ GameObject:
   - component: {fileID: 963868039827057879}
   - component: {fileID: 2153372146967122633}
   - component: {fileID: 1582485429805674222}
+  - component: {fileID: 1832862782867456546}
   m_Layer: 0
   m_Name: West
   m_TagString: Untagged
@@ -662,6 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1387138160306255839}
+  clickable: 0
 --- !u!61 &1582485429805674222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -688,6 +733,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1832862782867456546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4845421213114725089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705384a15294747edbd5ec734110f4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7907978988915859099
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +758,7 @@ GameObject:
   - component: {fileID: 5970542638698274275}
   - component: {fileID: 2608123125987508073}
   - component: {fileID: 5728310886766118515}
+  - component: {fileID: 5628923513143727443}
   m_Layer: 0
   m_Name: East
   m_TagString: Untagged
@@ -784,6 +843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1387138160306255839}
+  clickable: 0
 --- !u!61 &5728310886766118515
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -810,3 +870,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5628923513143727443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907978988915859099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705384a15294747edbd5ec734110f4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}

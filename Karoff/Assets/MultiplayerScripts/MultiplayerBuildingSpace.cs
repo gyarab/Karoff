@@ -11,7 +11,8 @@ public class MultiplayerBuildingSpace : MonoBehaviour
     private BoxCollider2D bc;
     public GameObject tilePrefab;
     //public GameObject board;
-    private bool clickable;
+    public bool clickable;
+    private BuildingSpacesColor[] colors;
 
     private void Awake()
     {
@@ -28,7 +29,8 @@ public class MultiplayerBuildingSpace : MonoBehaviour
     {
         bc.enabled = true;
 
-        spr.color = new Color(1f, 1f, 1f, 0.5f);
+        SetColor();
+        //spr.color = new Color(1f, 1f, 1f, 0.5f);
 
         GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
 
@@ -75,7 +77,7 @@ public class MultiplayerBuildingSpace : MonoBehaviour
             BiomeType bt = transform.parent.parent.Find("Biome").GetComponent<MultiplayerBiome>().type;
 
 
-            //if()
+            
 
 
 
@@ -86,16 +88,19 @@ public class MultiplayerBuildingSpace : MonoBehaviour
             else if (player.Equals("client")&& FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 0) {
                 FindObjectOfType<PlayerCommands>().SpawnTile(pos, bt.name);
             }
+            else
+            {
+                Debug.Log("Not your turn");
+            }
 
 
 
 
 
 
-           
 
 
-          
+
 
 
             if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn()%2 == 0) {
@@ -109,12 +114,32 @@ public class MultiplayerBuildingSpace : MonoBehaviour
 
             FindObjectOfType<MultiplayerBiomeBuilding>().DeselectBiome();
 
-            Debug.Log("click registered" + transform.name);
+            //Debug.Log("click registered" + transform.name);
 
         }
 
     }
 
+    void SetColor() {
+        var objects = GameObject.FindObjectsOfType<PlayerID>();
+
+        foreach (var o in objects)
+        {
+
+            //Debug.Log(o.ToString());
+            if (o.ToString().Contains("host"))
+            {
+                player = "host";
+            }
+            else if (o.ToString().Contains("client"))
+            {
+                player = "client";
+            }
+        }
+
+
+
+    }
 
 
 }

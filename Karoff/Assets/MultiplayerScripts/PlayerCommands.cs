@@ -13,9 +13,11 @@ public class PlayerCommands : NetworkBehaviour
     public BiomeType Mountains;
     public BiomeType Snow;
     private BiomeType biomeType;
+    GameObject GameManager;
 
-
-
+    public MultiplayerBiomeBuilding MBB;
+    //public Building[] buildings;
+    //public Building bu;
 
 
 
@@ -24,6 +26,8 @@ public class PlayerCommands : NetworkBehaviour
     private void Start()
     {
         turnManager = GameObject.Find("TurnManager");
+        GameManager = GameObject.Find("GameManager");
+        MBB = GameManager.GetComponent<MultiplayerBiomeBuilding>();
     }
 
     void Update()
@@ -31,12 +35,41 @@ public class PlayerCommands : NetworkBehaviour
 
     }
 
+    public void SetSprite(string building, GameObject o)
+    {
+
+        CmdSetSprite(building, o);
+    }
+    [Command]
+    public void CmdSetSprite(string building, GameObject o) {
+        RpcSetSprite(building, o);
+    }
+
+    [ClientRpc]
+    public void RpcSetSprite(string building, GameObject o)
+    {
+        o.GetComponent<SyncTile>().spr = building;
 
 
 
-   public void SpawnTile(Vector3 pos, string bt) {
+
+        //    //MBB.lastSelected.spr.sprite = bu.buildingIcon;
+        //    //MBB.lastSelected.spr.color = new Color(1f, 1f, 1f);
+
+
+        //    //bb.selected.spr.sprite = building.buildingIcon;
+        //    //bb.selected.spr.color = new Color(1f, 1f, 1f);
+    }
+
+
+
+
+    public void SpawnTile(Vector3 pos, string bt) {
         CmdSpawnObject(pos, bt);
     }
+
+
+
 
     public void ChangeTurn() 
     {
@@ -118,4 +151,5 @@ public class PlayerCommands : NetworkBehaviour
 //https://www.raywenderlich.com/2826197-scriptableobject-tutorial-getting-started#toc-anchor-003
 //https://docs.unity3d.com/Manual/index.html
 //https://answers.unity.com/questions/534582/accessing-variable-defined-in-a-script-attached-to.html
+//https://answers.unity.com/questions/990807/how-do-i-get-sprite-renderer-from-all-child.html
 

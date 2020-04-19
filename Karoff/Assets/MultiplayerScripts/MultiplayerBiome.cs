@@ -21,14 +21,14 @@ public class MultiplayerBiome : MonoBehaviour
     public SpriteRenderer spr;
 
     private MultiplayerBiomeBuilding bb;
-    //private BuildingManager bm;
+    private MultiplayerBuildingManager bm;
 
     private void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
 
         bb = FindObjectOfType<MultiplayerBiomeBuilding>();
-        //bm = FindObjectOfType<BuildingManager>();
+        bm = FindObjectOfType<MultiplayerBuildingManager>();
     }
 
 
@@ -38,11 +38,30 @@ public class MultiplayerBiome : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
         StartCoroutine(LateStart());
+
     }
 
     private IEnumerator LateStart()
     {
         yield return new WaitForSeconds(0.1f);
+
+
+        var objects = GameObject.FindObjectsOfType<PlayerID>();
+
+        foreach (var o in objects)
+        {
+
+            Debug.Log(o.ToString());
+            if (o.ToString().Contains("host"))
+            {
+                player = "host";
+            }
+            else if (o.ToString().Contains("client"))
+            {
+                player = "client";
+            }
+        }
+        Debug.Log(player);
 
         if (startingTile)
         {
@@ -52,6 +71,9 @@ public class MultiplayerBiome : MonoBehaviour
             //Debug.Log(transform.parent.parent.name);
             transform.parent.GetComponent<SpriteRenderer>().color = type.typeColor;
         }
+
+
+
     }
 
     //private void Update()
@@ -87,14 +109,30 @@ public class MultiplayerBiome : MonoBehaviour
             {
                 gameManager.GetComponent<MultiplayerBiomeBuilding>().DeselectBiome();
 
-
-
             }
         }
-        else if (bb.selected.spr.sprite == square)
+
+        else if (bb.selected.spr.sprite == null)
         {
-            Debug.Log("nothing happens");
-            //bm.ActivityOnBuildingsMenu(true);
+            //Debug.Log(bb.selected.spr.sprite);
+            //Debug.Log(player);
+            //Debug.Log(FindObjectOfType<MultiplayerTurnManager>().GetTurn());
+
+            if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 0)
+            {
+                bm.ActivityOnBuildingsMenu(true);
+            }
+            else if (player.Equals("client") && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 0)
+            {
+                bm.ActivityOnBuildingsMenu(true);
+            }
+            else {
+                Debug.Log("Not your turn");
+            }
+
+
+
+
         }
 
     }
