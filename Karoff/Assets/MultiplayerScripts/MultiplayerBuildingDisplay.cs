@@ -21,6 +21,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
     public TextMeshProUGUI gainText;
 
     private MultiplayerTurnManager tm;
+    private SyncResources sr;
     private MultiplayerResourceManager rm;
     private MultiplayerBiomeBuilding bb;
     private MultiplayerBuildingManager bm;
@@ -31,6 +32,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
         rm = FindObjectOfType<MultiplayerResourceManager>();
         bb = FindObjectOfType<MultiplayerBiomeBuilding>();
         bm = FindObjectOfType<MultiplayerBuildingManager>();
+        sr = FindObjectOfType<SyncResources>();
     }
 
     private void Start()
@@ -84,32 +86,52 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
         }
     }
 
+    int change1;
+    int change2;
+    int change3;
+    int change4;
+    int change5;
+    int change6;
+    int change7;
+    int change8;
+    int change9;
+
     public void Buy()
     {
         if (tm.currentTurn == "Blue")
         {
+
             if (rm.blueResources[1] >= building.prices[0] && rm.blueResources[2] >= building.prices[1] && rm.blueResources[3] >= building.prices[2] && rm.blueResources[4] >= building.prices[3] && Array.Exists<BiomeType>(building.possibleBiomes, element => element == bb.selected.type))
             {
                 rm.blueResources[1] -= building.prices[0];
                 rm.blueResources[2] -= building.prices[1];
                 rm.blueResources[3] -= building.prices[2];
                 rm.blueResources[4] -= building.prices[3];
+                change1 = building.prices[0];
+                change2 = building.prices[1];
+                change3 = building.prices[2];
+                change4 = building.prices[3];
 
                 if (building.gain[0] != 0)
                 {
                     rm.blueResources[0] += building.gain[0];
+                    change5 = building.gain[0];
                 }
                 else if (building.gain[1] != 0) {
                     rm.blueSandMultiplier += building.gain[1];
+                    change6 = building.gain[1]; 
                 } else if (building.gain[2] != 0)
                 {
                     rm.blueWoodMultiplier += building.gain[2];
+                    change7 = building.gain[2];
                 } else if (building.gain[3] != 0)
                 {
                     rm.blueStoneMultiplier += building.gain[3];
+                    change8 = building.gain[3];
                 } else if (building.gain[4] != 0)
                 {
                     rm.blueIceMultiplier += building.gain[4];
+                    change9 = building.gain[4];
                 }
 
 
@@ -122,6 +144,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
                 {
 
                     bb.selected.gameObject.GetComponentInParent<SyncTile>().SetTile(building.ToString());
+                    FindObjectOfType<PlayerCommands>().SetMultipliers(change1, change2, change3, change4, change5, change6, change7, change8, change9, tm.currentTurn);
                     //FindObjectOfType<PlayerCommands>().SetSprite(building.ToString());
                     FindObjectOfType<PlayerCommands>().ChangeTurn();
                 }
@@ -129,6 +152,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
                 {
 
                     bb.selected.gameObject.GetComponentInParent<SyncTile>().SetTile(building.ToString());
+                    FindObjectOfType<PlayerCommands>().SetMultipliers(change1, change2, change3, change4, change5, change6, change7, change8, change9, tm.currentTurn);
                     //FindObjectOfType<PlayerCommands>().SetSprite(building.ToString());
                     FindObjectOfType<PlayerCommands>().ChangeTurn();
                 }
@@ -149,26 +173,34 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
                 rm.redResources[2] -= building.prices[1];
                 rm.redResources[3] -= building.prices[2];
                 rm.redResources[4] -= building.prices[3];
-
+                change1 = building.prices[0];
+                change2 = building.prices[1];
+                change3 = building.prices[2];
+                change4 = building.prices[3];
                 if (building.gain[0] != 0)
                 {
                     rm.redResources[0] += building.gain[0];
+                    change5 = building.gain[0];
                 }
                 else if (building.gain[1] != 0)
                 {
                     rm.redSandMultiplier += building.gain[1];
+                    change6 = building.gain[1];
                 }
                 else if (building.gain[2] != 0)
                 {
                     rm.redWoodMultiplier += building.gain[2];
+                    change7 = building.gain[2];
                 }
                 else if (building.gain[3] != 0)
                 {
                     rm.redStoneMultiplier += building.gain[3];
+                    change8 = building.gain[3];
                 }
                 else if (building.gain[4] != 0)
                 {
                     rm.redIceMultiplier += building.gain[4];
+                    change9 = building.gain[4];
                 }
 
                 //Debug.Log(building.buildingIcon.ToString());
@@ -182,9 +214,9 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
 
                 if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 0)
                 {
-                   
+                    
                     bb.selected.gameObject.GetComponentInParent<SyncTile>().SetTile(building.ToString());
-
+                    FindObjectOfType<PlayerCommands>().SetMultipliers(change1, change2, change3, change4, change5, change6, change7, change8, change9, tm.currentTurn);
                     //FindObjectOfType<PlayerCommands>().SetSprite(building.ToString());
                     FindObjectOfType<PlayerCommands>().ChangeTurn();
                 }
@@ -192,6 +224,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
                 {
 
                     bb.selected.gameObject.GetComponentInParent<SyncTile>().SetTile(building.ToString());
+                    FindObjectOfType<PlayerCommands>().SetMultipliers(change1, change2, change3, change4, change5, change6, change7, change8, change9, tm.currentTurn);
                     //FindObjectOfType<PlayerCommands>().SetSprite(building.ToString());
                     FindObjectOfType<PlayerCommands>().ChangeTurn();
                 }

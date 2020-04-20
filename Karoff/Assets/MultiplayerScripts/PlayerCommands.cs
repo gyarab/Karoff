@@ -14,6 +14,7 @@ public class PlayerCommands : NetworkBehaviour
     public BiomeType Snow;
     private BiomeType biomeType;
     GameObject GameManager;
+    GameObject ResourceManager;
 
     public MultiplayerBiomeBuilding MBB;
     //public Building[] buildings;
@@ -27,6 +28,7 @@ public class PlayerCommands : NetworkBehaviour
     {
         turnManager = GameObject.Find("TurnManager");
         GameManager = GameObject.Find("GameManager");
+        ResourceManager = GameObject.Find("ResourceManager");
         MBB = GameManager.GetComponent<MultiplayerBiomeBuilding>();
     }
 
@@ -133,6 +135,7 @@ public class PlayerCommands : NetworkBehaviour
         NI.AssignClientAuthority(connectionToClient);
         RpcChangeTurn(turnManager);
         NI.RemoveClientAuthority(connectionToClient);
+
     }
 
     [ClientRpc]
@@ -140,8 +143,28 @@ public class PlayerCommands : NetworkBehaviour
     {
 
         turnO.GetComponent<MultiplayerTurnManager>().SetTurn();
+        turnO.GetComponent<SyncResources>().ChangeResources();
     }
 
+    public void SetMultipliers(int c1, int c2, int c3, int c4, int c5, int c6, int c7, int c8, int c9, string c) {
+        CmdSetMultipliers(c1, c2, c3, c4, c5, c6, c7, c8, c9, c);
+    }
+
+    [Command]
+    void CmdSetMultipliers(int c1, int c2, int c3, int c4, int c5, int c6, int c7, int c8, int c9, string c)
+    {
+        NetworkIdentity NI = turnManager.GetComponent<NetworkIdentity>();
+        NI.AssignClientAuthority(connectionToClient);
+        RpcSetMultipliers(c1, c2, c3, c4, c5, c6, c7, c8, c9, turnManager, c);
+        NI.RemoveClientAuthority(connectionToClient);
+
+    }
+
+    [ClientRpc]
+    public void RpcSetMultipliers(int c1, int c2, int c3, int c4, int c5, int c6, int c7, int c8, int c9, GameObject turnO, string c)
+    {
+        turnO.GetComponent<SyncResources>().ChangeMultipliers(c1, c2, c3, c4, c5, c6, c7, c8, c9, c);
+    }
 
 }
 
@@ -152,4 +175,4 @@ public class PlayerCommands : NetworkBehaviour
 //https://docs.unity3d.com/Manual/index.html
 //https://answers.unity.com/questions/534582/accessing-variable-defined-in-a-script-attached-to.html
 //https://answers.unity.com/questions/990807/how-do-i-get-sprite-renderer-from-all-child.html
-
+//https://www.youtube.com/watch?v=9w2kwGDZ6wM

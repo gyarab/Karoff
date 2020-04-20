@@ -13,7 +13,7 @@ public class MultiplayerBiome : MonoBehaviour
 
     public bool startingTile;
 
-    private string player;
+    public string player;
     public GameObject gameManager;
     public GameObject BuildingSpaces;
 

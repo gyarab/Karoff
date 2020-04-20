@@ -10,11 +10,15 @@ public class MultiplayerResourceManager : MonoBehaviour
     // Points, Sand, Wood, Stone, Ice
 
     [Header("Resources")]
-    public int[] blueResources = {0, 0, 0, 0, 0};
-    public int[] redResources = {0, 0, 0, 0, 0};
+    public int[] blueResources = { 0, 0, 0, 0, 0 };
+    public int[] redResources = { 0, 0, 0, 0, 0 };
 
     private void Start()
     {
+        UpdateUITexts();
+    }
+
+    private void Update(){
         UpdateUITexts();
     }
 
@@ -96,7 +100,7 @@ public class MultiplayerResourceManager : MonoBehaviour
     #endregion
 
     public void EndTurnResources()
-    {
+    {   
         ChangeBlueSand(blueSandMultiplier);
         ChangeBlueWood(blueWoodMultiplier);
         ChangeBlueStone(blueStoneMultiplier);

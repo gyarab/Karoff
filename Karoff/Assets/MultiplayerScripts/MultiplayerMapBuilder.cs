@@ -54,7 +54,7 @@ public class MultiplayerMapBuilder : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
 
         var objects = FindObjectsOfType<PlayerID>();
-        Debug.Log(objects[0]);
+        //Debug.Log(objects[0]);
         foreach (var o in objects)
         {
 

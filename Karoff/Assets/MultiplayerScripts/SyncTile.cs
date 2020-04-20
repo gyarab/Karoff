@@ -84,7 +84,7 @@ public class SyncTile : NetworkBehaviour
 
             //syncVar of this 
 
-            Debug.Log(go);
+            //Debug.Log(go);
             bi = go.GetComponent<MultiplayerBiome>();
             sr = go.GetComponent<SpriteRenderer>();
 

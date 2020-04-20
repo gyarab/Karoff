@@ -1387,6 +1387,7 @@ GameObject:
   - component: {fileID: 731747559}
   - component: {fileID: 731747561}
   - component: {fileID: 731747560}
+  - component: {fileID: 731747562}
   m_Layer: 0
   m_Name: TurnManager
   m_TagString: Untagged
@@ -1463,6 +1464,19 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &731747562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731747558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e91435714cb433081d4a9257d93931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element0: 0
 --- !u!1 &772933887
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3125,6 @@ GameObject:
   - component: {fileID: 1548315752}
   - component: {fileID: 1548315751}
   - component: {fileID: 1548315750}
-  - component: {fileID: 1548315753}
   m_Layer: 0
   m_Name: ResourceManager
   m_TagString: Manager
@@ -3193,18 +3206,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1548315753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548315749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e91435714cb433081d4a9257d93931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1552055964
 GameObject:
   m_ObjectHideFlags: 0
