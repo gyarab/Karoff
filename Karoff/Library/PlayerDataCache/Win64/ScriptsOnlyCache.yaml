@@ -39,7 +39,6 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
-    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -61,9 +60,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Mask
-    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
@@ -96,19 +96,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11166}
     - Class: 114
+      Script: {instanceID: 11370}
+    - Class: 114
       Script: {instanceID: 11372}
     - Class: 114
       Script: {instanceID: 11384}
     - Class: 114
       Script: {instanceID: 11420}
     - Class: 114
-      Script: {instanceID: 11448}
-    - Class: 114
       Script: {instanceID: 11464}
     - Class: 114
       Script: {instanceID: 11600}
-    - Class: 114
-      Script: {instanceID: 11662}
     - Class: 114
       Script: {instanceID: 11834}
     - Class: 114
@@ -123,6 +121,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12386}
     - Class: 114
       Script: {instanceID: 12450}
+    - Class: 114
+      Script: {instanceID: 12612}
     - Class: 114
       Script: {instanceID: 12620}
     - Class: 114
@@ -1013,4 +1013,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/MultiplayerScene.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Karoff Multiplayer Beta 0.1b/Karoff.exe
+  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Karoff Multiplayer Beta 0.1b/Karoff
+    Multiplayer Beta 0.2b/Karoff 0.4b/Karoff.exe

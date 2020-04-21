@@ -13,11 +13,11 @@
       <File FileName="Assets/MultiplayerScripts/PlayerID.cs" Line="1" Column="1" />
       <File FileName="Assets/MultiplayerScripts/SyncTile.cs" Line="87" Column="1" />
       <File FileName="Assets/MultiplayerScripts/BuildingSpacesColor.cs" Line="13" Column="1" />
-      <File FileName="Assets/MultiplayerScripts/MultiplayerBuildingDisplay.cs" Line="213" Column="17" />
+      <File FileName="Assets/MultiplayerScripts/MultiplayerBuildingDisplay.cs" Line="213" Column="1" />
       <File FileName="Assets/MultiplayerScripts/SyncResources.cs" Line="71" Column="91" />
       <File FileName="Assets/MultiplayerScripts/PlayerCommands.cs" Line="178" Column="46" />
       <File FileName="Assets/MultiplayerScripts/MultiplayerResourceManager.cs" Line="99" Column="37" />
-      <File FileName="Assets/MultiplayerScripts/MenuNetworkManager.cs" Line="13" Column="1" />
+      <File FileName="Assets/MultiplayerScripts/MenuNetworkManager.cs" Line="16" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

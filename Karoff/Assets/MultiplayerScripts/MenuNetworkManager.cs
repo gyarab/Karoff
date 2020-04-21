@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class MenuNetworkManager : NetworkManager
@@ -13,13 +12,17 @@ public class MenuNetworkManager : NetworkManager
 
     private void Start()
     {
-      IP.GetComponent<TMP_Text>().text = "localhost";
-      Port.GetComponent<TMP_Text>().text = "25565";
+      IP.GetComponent<Text>().text = "localhost";
+      Port.GetComponent<Text>().text = "25565";
     }
 
     private void Update()
     {
-        //Debug.Log(IP.GetComponent<TMP_Text>().text);
+        if (SceneManager.GetActiveScene().name == "MenuScene")
+        {
+            Debug.Log(IP.GetComponent<Text>().text);
+            Debug.Log(Port.GetComponent<Text>().text);
+        }
     }
 
     public void StartHosting() {
@@ -29,7 +32,7 @@ public class MenuNetworkManager : NetworkManager
 
     private void SetPort()
     {
-        string PortNumber = Port.GetComponent<TMP_Text>().text;
+        string PortNumber = Port.GetComponent<Text>().text;
         base.networkPort = int.Parse(PortNumber);
     }
 
@@ -41,7 +44,7 @@ public class MenuNetworkManager : NetworkManager
     }
 
     protected void SetIP() {
-        string IPAdress = IP.GetComponent<TMP_Text>().text;
+        string IPAdress = IP.GetComponent<Text>().text;
         base.networkAddress = IPAdress;
     }
 
