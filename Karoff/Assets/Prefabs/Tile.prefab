@@ -652,6 +652,8 @@ MonoBehaviour:
   startingTile: 0
   spr: {fileID: 0}
   buildingSpaces: {fileID: 869308134}
+  particlePrefab: {fileID: 319351829861965440, guid: 246a6a0195447be4e903910e8e1a04b2,
+    type: 3}
 --- !u!1 &2960170615361171568
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,14 +15,18 @@ public class Biome : MonoBehaviour
     public SpriteRenderer spr;
     private BiomeBuilding bb;
     private BuildingManager bm;
+    private CameraShake cs;
 
     public GameObject buildingSpaces;
+
+    public GameObject particlePrefab;
 
     private void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
         bb = FindObjectOfType<BiomeBuilding>();
         bm = FindObjectOfType<BuildingManager>();
+        cs = FindObjectOfType<CameraShake>();
     }
 
     private void Start()
@@ -38,7 +42,18 @@ public class Biome : MonoBehaviour
         {
             spr.sprite = type.typeIcon;
             transform.parent.GetComponent<SpriteRenderer>().color = type.typeColor;
+        } else
+        {
+            SpawnParticle();
+            StartCoroutine(cs.ShakeCamera(cs.dur, cs.mag));
+
         }
+
+    }
+
+    public void SpawnParticle()
+    {
+        Instantiate(particlePrefab, transform.position, Quaternion.identity, transform);
     }
 
     public void NewColor()
