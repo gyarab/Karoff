@@ -80,7 +80,7 @@ public class MultiplayerBiome : MonoBehaviour
 
             if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 1)
             {
-                Debug.Log("1234");
+                //Debug.Log("1234");
                 SpawnParticle();
                 StartCoroutine(cs.ShakeCamera(cs.dur, cs.mag));
 
