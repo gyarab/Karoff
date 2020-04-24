@@ -19,14 +19,16 @@ public class MultiplayerBiome : MonoBehaviour
 
     [HideInInspector]
     public SpriteRenderer spr;
-
+    private CameraShake cs;
     private MultiplayerBiomeBuilding bb;
     private MultiplayerBuildingManager bm;
+
+    public GameObject particlePrefab;
 
     private void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
-
+        cs = FindObjectOfType<CameraShake>();
         bb = FindObjectOfType<MultiplayerBiomeBuilding>();
         bm = FindObjectOfType<MultiplayerBuildingManager>();
     }
@@ -71,6 +73,25 @@ public class MultiplayerBiome : MonoBehaviour
             //Debug.Log(transform.parent.parent.name);
             transform.parent.GetComponent<SpriteRenderer>().color = type.typeColor;
         }
+        else
+        {
+            Debug.Log(player);
+            Debug.Log(FindObjectOfType<MultiplayerTurnManager>().GetTurn());
+
+            if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 1)
+            {
+                Debug.Log("1234");
+                SpawnParticle();
+                StartCoroutine(cs.ShakeCamera(cs.dur, cs.mag));
+
+            }
+            else if (player.Equals("client") && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 1)
+            {
+                SpawnParticle();
+                StartCoroutine(cs.ShakeCamera(cs.dur, cs.mag));
+            }
+
+        }
 
 
 
@@ -82,6 +103,10 @@ public class MultiplayerBiome : MonoBehaviour
     //    transform.parent.GetComponent<SpriteRenderer>().color = type.typeColor;
     //}
 
+    public void SpawnParticle()
+    {
+        Instantiate(particlePrefab, transform.position, Quaternion.identity, transform);
+    }
 
 
     public void NewColor()

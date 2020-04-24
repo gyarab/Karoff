@@ -124,9 +124,12 @@ MonoBehaviour:
   type: {fileID: 0}
   square: {fileID: 0}
   startingTile: 0
+  player: 
   gameManager: {fileID: 0}
   BuildingSpaces: {fileID: 2571398989420305080}
   spr: {fileID: 0}
+  particlePrefab: {fileID: 319351829861965440, guid: 246a6a0195447be4e903910e8e1a04b2,
+    type: 3}
 --- !u!1 &1387138160306255839
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +302,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 36c5bdb67efad5c41ae8a0d61b5d09a9, type: 2}
   - {fileID: 11400000, guid: 25808c1ccaefd844597af309d47186f6, type: 2}
   bu: {fileID: 0}
+  go: {fileID: 0}
+  bi: {fileID: 0}
+  sr: {fileID: 0}
   spr: 
   starting: 0
 --- !u!1 &1757166878978200115

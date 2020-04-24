@@ -54,11 +54,21 @@ public class SyncTile : NetworkBehaviour
 
 
         go = o.transform.Find("Biome").gameObject;
+        InvokeRepeating("SyncTiles", 0, 1.0f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    public void SetTile(string building) {
+        FindObjectOfType<PlayerCommands>().SetSprite(building, o);
+    }
+
+    void SyncTiles() {
 
         if (biomeType != null)
         {
@@ -70,7 +80,8 @@ public class SyncTile : NetworkBehaviour
             o.GetComponent<SpriteRenderer>().color = biomeType.typeColor;
         }
 
-        if (spr != null && spr != "" ) {
+        if (spr != null && spr != "")
+        {
             Debug.Log("trying to set spriiiite");
 
             foreach (Building b in buildings)
@@ -95,14 +106,10 @@ public class SyncTile : NetworkBehaviour
         }
 
 
-        if(starting != false) {
+        if (starting != false)
+        {
             o.GetComponentInChildren<MultiplayerBiome>().startingTile = starting;
         }
     }
-
-    public void SetTile(string building) {
-        FindObjectOfType<PlayerCommands>().SetSprite(building, o);
-    }
-
 
 }

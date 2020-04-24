@@ -19,7 +19,7 @@ public class MultiplayerBuildingManager : MonoBehaviour
     private void Start()
     {
 
-        position = new Vector2(225f, 150f);
+        position = new Vector2(225f, 116.5f);
 
         foreach (Building b in buildings)
         {

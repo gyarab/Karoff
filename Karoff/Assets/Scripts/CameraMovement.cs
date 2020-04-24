@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
     private float screenWidth;
     private float screenHeight;
     private Vector3 cameraMove;
+    bool enabled = true;
 
     // Use this for initialization
     void Start()
@@ -26,28 +27,44 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move camera
-        if ((Input.mousePosition.x > screenWidth - offset) && transform.position.x < minMaxXPosition.y)
+        if (Input.GetKeyDown("space"))
         {
-            cameraMove.x += MoveSpeed();
+            Debug.Log("space");
+            if (enabled)
+            {
+                Debug.Log(true);
+                enabled = false;
+            }
+            else
+            {
+                Debug.Log(false);
+                enabled = true;
+            }
         }
-        if ((Input.mousePosition.x < offset) && transform.position.x > minMaxXPosition.x)
+        if (enabled)
         {
-            cameraMove.x -= MoveSpeed();
+            //Move camera
+            if ((Input.mousePosition.x > screenWidth - offset) && transform.position.x < minMaxXPosition.y)
+            {
+                cameraMove.x += MoveSpeed();
+            }
+            if ((Input.mousePosition.x < offset) && transform.position.x > minMaxXPosition.x)
+            {
+                cameraMove.x -= MoveSpeed();
+            }
+            if ((Input.mousePosition.y > screenHeight - offset) && transform.position.y < minMaxYPosition.y)
+            {
+                cameraMove.y += MoveSpeed();
+            }
+            if ((Input.mousePosition.y < offset) && transform.position.y > minMaxYPosition.x)
+            {
+                cameraMove.y -= MoveSpeed();
+            }
+            transform.position = cameraMove;
         }
-        if ((Input.mousePosition.y > screenHeight - offset) && transform.position.y < minMaxYPosition.y)
+        float MoveSpeed()
         {
-            cameraMove.y += MoveSpeed();
+            return speed * Time.deltaTime;
         }
-        if ((Input.mousePosition.y < offset) && transform.position.y > minMaxYPosition.x)
-        {
-            cameraMove.y -= MoveSpeed();
-        }
-        transform.position = cameraMove;
     }
-    float MoveSpeed()
-    {
-        return speed * Time.deltaTime;
-    }
-
 }

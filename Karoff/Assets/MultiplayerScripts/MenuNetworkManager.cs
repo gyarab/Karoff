@@ -49,7 +49,7 @@ public class MenuNetworkManager : NetworkManager
     }
 
     public void PlayLocalOnOnePc() {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("LocalScene");
     }
 
 

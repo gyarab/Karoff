@@ -43,11 +43,18 @@ public class SyncResources : NetworkBehaviour
     void Start()
     {
         ResourceManager = GameObject.Find("ResourceManager");
+        InvokeRepeating("SetRes", 0, 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+    }
+
+    void SetRes() {
+
         ResourceManager.GetComponent<MultiplayerResourceManager>().blueResources[0] = blueResources0;
         ResourceManager.GetComponent<MultiplayerResourceManager>().blueResources[1] = blueResources1;
         ResourceManager.GetComponent<MultiplayerResourceManager>().blueResources[2] = blueResources2;
