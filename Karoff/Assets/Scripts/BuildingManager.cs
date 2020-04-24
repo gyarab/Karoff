@@ -7,28 +7,24 @@ using UnityEngine.EventSystems;
 public class BuildingManager : MonoBehaviour
 {
     public Building[] buildings;
+    public BuildingDisplay[] displays;
 
     public BuildingDisplay displayPrefab;
 
     public GameObject buildingsParent;
     public GameObject buildingsMenu;
-    private Vector2 position;
 
     public BoxCollider2D menuBox;
 
     private void Start()
     {
 
-        position = new Vector2(225f, 116.5f);
-
-        foreach (Building b in buildings)
+        for (int i = 0; i < buildings.Length; i++)
         {
-
-            BuildingDisplay bd = Instantiate(displayPrefab, position, Quaternion.identity, buildingsParent.transform);
-
-            bd.building = b;
-            position = new Vector2(bd.transform.position.x + 310f, bd.transform.position.y);
+            displays[i].building = buildings[i];
+            displays[i].Fill();
         }
+        
     }
 
     private void Update()

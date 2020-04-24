@@ -31,7 +31,7 @@ public class BuildingDisplay : MonoBehaviour
         bm = FindObjectOfType<BuildingManager>();
     }
 
-    private void Start()
+    public void Fill()
     {
         icon.sprite = building.buildingIcon;
 
