@@ -53,8 +53,9 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
             }
         }
 
+    }
 
-
+    public void Fill() {
 
         icon.sprite = building.buildingIcon;
 
@@ -67,19 +68,23 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
         {
             gainIcon.sprite = posssibleGainIcons[0];
             gainText.text = "" + building.gain[0];
-        } else if (building.gain[1] != 0) // Awards Sand Multiplier
+        }
+        else if (building.gain[1] != 0) // Awards Sand Multiplier
         {
             gainIcon.sprite = posssibleGainIcons[1];
             gainText.text = "" + building.gain[1];
-        } else if (building.gain[2] != 0) // Awards Wood Multiplier
+        }
+        else if (building.gain[2] != 0) // Awards Wood Multiplier
         {
             gainIcon.sprite = posssibleGainIcons[2];
             gainText.text = "" + building.gain[2];
-        } else if (building.gain[3] != 0) // Awards Stone Multiplier
+        }
+        else if (building.gain[3] != 0) // Awards Stone Multiplier
         {
             gainIcon.sprite = posssibleGainIcons[3];
             gainText.text = "" + building.gain[3];
-        } else if (building.gain[4] != 0) // Awards Ice Multiplier
+        }
+        else if (building.gain[4] != 0) // Awards Ice Multiplier
         {
             gainIcon.sprite = posssibleGainIcons[4];
             gainText.text = "" + building.gain[4];

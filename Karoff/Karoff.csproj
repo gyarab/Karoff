@@ -632,6 +632,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MultiplayerScripts\BuildingSpacesColor.cs" />
+    <Compile Include="Assets\MultiplayerScripts\MenuAwake.cs" />
     <Compile Include="Assets\MultiplayerScripts\MenuNetworkManager.cs" />
     <Compile Include="Assets\MultiplayerScripts\MultiplayerBiome.cs" />
     <Compile Include="Assets\MultiplayerScripts\MultiplayerBiomeBuilding.cs" />
@@ -658,6 +659,7 @@
     <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\MapBuilder.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\SkipTurn.cs" />
     <Compile Include="Assets\Scripts\TurnManager.cs" />
     <Compile Include="Assets\Scripts\WinManager.cs" />
   </ItemGroup>

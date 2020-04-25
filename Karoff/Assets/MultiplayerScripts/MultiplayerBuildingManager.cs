@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class MultiplayerBuildingManager : MonoBehaviour
 {
     public Building[] buildings;
+    public MultiplayerBuildingDisplay[] displays;
 
     public MultiplayerBuildingDisplay displayPrefab;
 
@@ -19,16 +20,22 @@ public class MultiplayerBuildingManager : MonoBehaviour
     private void Start()
     {
 
-        position = new Vector2(225f, 116.5f);
-
-        foreach (Building b in buildings)
+        for (int i = 0; i < buildings.Length; i++)
         {
-
-            MultiplayerBuildingDisplay bd = Instantiate(displayPrefab, position, Quaternion.identity, buildingsParent.transform);
-
-            bd.building = b;
-            position = new Vector2(bd.transform.position.x + 310f, bd.transform.position.y);
+            displays[i].building = buildings[i];
+            displays[i].Fill();
         }
+
+        //position = new Vector2(225f, 116.5f);
+
+        //foreach (Building b in buildings)
+        //{
+
+        //    MultiplayerBuildingDisplay bd = Instantiate(displayPrefab, position, Quaternion.identity, buildingsParent.transform);
+
+        //    bd.building = b;
+        //    position = new Vector2(bd.transform.position.x + 310f, bd.transform.position.y);
+        //}
     }
 
     private void Update()

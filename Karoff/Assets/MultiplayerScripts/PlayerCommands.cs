@@ -166,7 +166,28 @@ public class PlayerCommands : NetworkBehaviour
         turnO.GetComponent<SyncResources>().ChangeMultipliers(c1, c2, c3, c4, c5, c6, c7, c8, c9, c);
     }
 
+    public void Skip()
+    {
+        CmdSkip();
+    }
+
+    [Command]
+    void CmdSkip() {
+        NetworkIdentity NI = turnManager.GetComponent<NetworkIdentity>();
+        NI.AssignClientAuthority(connectionToClient);
+        RpcSkip(turnManager);
+        NI.RemoveClientAuthority(connectionToClient);
+    }
+
+    [ClientRpc]
+    void RpcSkip(GameObject turn) {
+        turn.GetComponent<SyncResources>().skipTurn();
+    }
+
+
 }
+
+
 
 
 //jentak btw sem davam odkazy z kterych se cerpalo pri tvorbe 

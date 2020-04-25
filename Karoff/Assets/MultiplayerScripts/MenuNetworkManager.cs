@@ -10,29 +10,69 @@ public class MenuNetworkManager : NetworkManager
     public GameObject IP;
     public GameObject Port;
 
+    public GameObject StartHostingButton;
+    public GameObject ConnectToHostButton;
+    public GameObject LocalGameButton;
+
     private void Start()
     {
-      IP.GetComponent<Text>().text = "localhost";
-      Port.GetComponent<Text>().text = "25565";
+       IP = GameObject.Find("IP");
+       Port =  GameObject.Find("Port");
+       StartHostingButton = GameObject.Find("StartHosting");
+       ConnectToHostButton = GameObject.Find("ConnectToHost");
+        LocalGameButton = GameObject.Find("Local");
+
+    IP.transform.Find("Text").GetComponent<Text>().text = "localhost";
+      Port.transform.Find("Text").GetComponent<Text>().text = "25565";
     }
+
+  
 
     private void Update()
     {
         if (SceneManager.GetActiveScene().name == "MenuScene")
         {
-            Debug.Log(IP.GetComponent<Text>().text);
-            Debug.Log(Port.GetComponent<Text>().text);
+
+
+            Debug.Log(IP.transform.Find("Text").GetComponent<Text>().text);
+            Debug.Log(Port.transform.Find("Text").GetComponent<Text>().text);
+            if (Input.GetKeyDown("escape")) {
+                //base.StopHost();
+
+                Application.Quit();
+            }
+
+
+
         }
+        if (SceneManager.GetActiveScene().name == "MultiplayerScene")
+        {
+            if (Input.GetKeyDown("escape"))
+            {
+                //pridat popup jestli chce odejit
+                base.StopHost();
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "LocalScene")
+        {
+            if (Input.GetKeyDown("escape"))
+            {
+                //pridat popup jestli chce odejit
+                SceneManager.LoadScene("MenuScene");
+            }
+        }
+
     }
 
     public void StartHosting() {
+        base.StopHost();
         SetPort();
         base.StartHost();
    }
 
     private void SetPort()
     {
-        string PortNumber = Port.GetComponent<Text>().text;
+        string PortNumber = Port.transform.Find("Text").GetComponent<Text>().text;
         base.networkPort = int.Parse(PortNumber);
     }
 
@@ -44,12 +84,36 @@ public class MenuNetworkManager : NetworkManager
     }
 
     protected void SetIP() {
-        string IPAdress = IP.GetComponent<Text>().text;
+        string IPAdress = IP.transform.Find("Text").GetComponent<Text>().text;
         base.networkAddress = IPAdress;
     }
 
     public void PlayLocalOnOnePc() {
         SceneManager.LoadScene("LocalScene");
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 0) {
+            SetupMenu();
+        }
+    }
+
+    public void SetupMenu() {
+        IP = GameObject.Find("IP");
+        Port = GameObject.Find("Port");
+        StartHostingButton = GameObject.Find("StartHosting");
+        ConnectToHostButton = GameObject.Find("ConnectToHost");
+        LocalGameButton = GameObject.Find("Local");
+
+        StartHostingButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        StartHostingButton.GetComponent<Button>().onClick.AddListener(StartHosting);
+        //Debug.Log(StartHostingButton.GetComponent<Button>().onClick);
+        ConnectToHostButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        ConnectToHostButton.GetComponent<Button>().onClick.AddListener(ConnnectToHost);
+
+        LocalGameButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        LocalGameButton.GetComponent<Button>().onClick.AddListener(PlayLocalOnOnePc);
     }
 
 

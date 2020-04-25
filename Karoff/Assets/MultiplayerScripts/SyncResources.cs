@@ -115,4 +115,39 @@ public class SyncResources : NetworkBehaviour
             redIceMultiplier += c9;
         }
     }
+
+    public void skipTurn() {
+       if(FindObjectOfType<MultiplayerTurnManager>().currentTurn == "Red") {
+            if (redResources0 - 3 < 0)
+            {
+                redResources0 = 0;
+            }
+            else
+            {
+                redResources0 -= 3; 
+            }
+
+            redResources1 = Mathf.FloorToInt(redResources1 * 0.6f);
+            redResources2 = Mathf.FloorToInt(redResources2 * 0.6f);
+            redResources3 = Mathf.FloorToInt(redResources3 * 0.6f);
+            redResources4 = Mathf.FloorToInt(redResources4 * 0.6f);
+
+
+        }
+       else if (FindObjectOfType<MultiplayerTurnManager>().currentTurn == "Blue") {
+            if (blueResources0 - 3 < 0)
+            {
+                blueResources0 = 0;
+            }
+            else
+            {
+                blueResources0 -= 3;
+            }
+
+            blueResources1 = Mathf.FloorToInt(blueResources1 * 0.6f);
+            blueResources2 = Mathf.FloorToInt(blueResources2 * 0.6f);
+            blueResources3 = Mathf.FloorToInt(blueResources3 * 0.6f);
+            blueResources4 = Mathf.FloorToInt(blueResources4 * 0.6f);
+        }
+    }
 }

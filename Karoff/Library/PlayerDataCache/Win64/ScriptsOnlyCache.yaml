@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - CameraMovement
     - CameraShake
     - MapBuilder
+    - MenuAwake
     - MenuNetworkManager
     - MultiplayerBiome
     - MultiplayerBiomeBuilding
@@ -26,6 +27,7 @@ ScriptsOnlyBuild:
     - PlayerCommands
     - PlayerID
     - ResourceManager
+    - SkipTurn
     - SyncResources
     - SyncTile
     - TurnManager
@@ -136,6 +138,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16166}
     - Class: 114
       Script: {instanceID: 16312}
+    - Class: 114
+      Script: {instanceID: 53454}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -229,6 +233,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16238}
     - Class: 114
       Script: {instanceID: 16312}
+    - Class: 114
+      Script: {instanceID: 118278}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -326,6 +332,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16312}
     - Class: 114
       Script: {instanceID: 16394}
+    - Class: 114
+      Script: {instanceID: 53454}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -355,7 +363,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: ff163081a19c7d76afdae010d4d3228f
+      Hash: 388042a4ee6f649a42990592ec1a1827
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuildingManager
@@ -403,7 +411,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 6b23b70bfeb9b0acb8837ecb23c8c475
+      Hash: 67b0d2f54dc67f8e471191428310356e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MultiplayerBuildingManager
@@ -727,7 +735,7 @@ ScriptsOnlyBuild:
     className: SyncTile
   - hash:
       serializedVersion: 2
-      Hash: 0b280c68e5ebc7ad93c56960aa52dff6
+      Hash: ece18a8e11dc9bb980a18836017af103
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuNetworkManager
@@ -1031,9 +1039,21 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MultiplayerMapBuilder
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SkipTurn
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuAwake
   platform: 19
   scenePathNames:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/MultiplayerScene.unity
   - Assets/Scenes/LocalScene.unity
-  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Windows Karoff 0.5b/Karoff.exe
+  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Karoff Multiplayer 0.6b/Karoff.exe

@@ -71,6 +71,8 @@ public class Biome : MonoBehaviour
         {
             bm.ActivityOnBuildingsMenu(true);
         }
+
     }
+
 
 }
