@@ -52,12 +52,14 @@ public class BuildingSpace : MonoBehaviour
     private void OnMouseUp()
     {
         if (clickable)
-        { 
-                GameObject tile = Instantiate(tilePrefab, transform.position, Quaternion.identity, board.transform);
+        {
+            FindObjectOfType<AudioManager>().Play("Build");
+            GameObject tile = Instantiate(tilePrefab, transform.position, Quaternion.identity, board.transform);
                 tile.transform.Find("Biome").GetComponent<Biome>().buildingSpaces.SetActive(false);
                 tile.transform.Find("Biome").GetComponent<Biome>().type = transform.parent.parent.Find("Biome").GetComponent<Biome>().type;
                 tile.transform.Find("Biome").GetComponent<Biome>().startingTile = false;
                 tile.transform.Find("Biome").GetComponent<Biome>().NewColor();
+            
                 
                 
                 
