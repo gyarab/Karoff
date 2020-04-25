@@ -83,9 +83,11 @@ public class MultiplayerBuildingSpace : MonoBehaviour
 
 
             if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn()%2 == 0) {
+                FindObjectOfType<AudioManager>().Play("Build");
                 FindObjectOfType<PlayerCommands>().SpawnTile(pos, bt.name);
                 }
             else if (player.Equals("client")&& FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 0) {
+                FindObjectOfType<AudioManager>().Play("Build");
                 FindObjectOfType<PlayerCommands>().SpawnTile(pos, bt.name);
             }
             else

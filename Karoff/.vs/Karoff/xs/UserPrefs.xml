@@ -2,16 +2,28 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MultiplayerScripts/MenuNetworkManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/TurnManager.cs" Line="70" Column="29" />
+      <File FileName="Assets/Scripts/TurnManager.cs" Line="44" Column="25" />
       <File FileName="Assets/Scripts/Biome.cs" Line="73" Column="10" />
       <File FileName="Assets/Scripts/SkipTurn.cs" Line="24" Column="113" />
-      <File FileName="Assets/MultiplayerScripts/MultiplayerBiome.cs" Line="148" Column="38" />
-      <File FileName="Assets/Scripts/ResourceManager.cs" Line="21" Column="33" />
-      <File FileName="Assets/MultiplayerScripts/PlayerCommands.cs" Line="199" Column="3" />
-      <File FileName="Assets/MultiplayerScripts/SyncResources.cs" Line="150" Column="68" />
-      <File FileName="Assets/MultiplayerScripts/MultiplayerMapBuilder.cs" Line="61" Column="1" />
-      <File FileName="Assets/MultiplayerScripts/MenuNetworkManager.cs" Line="40" Column="35" />
-      <File FileName="Assets/MultiplayerScripts/MenuAwake.cs" Line="10" Column="59" />
+      <File FileName="Assets/MultiplayerScripts/MultiplayerBiome.cs" Line="120" Column="5" />
+      <File FileName="Assets/Scripts/ResourceManager.cs" Line="105" Column="24" />
+      <File FileName="Assets/MultiplayerScripts/PlayerCommands.cs" Line="166" Column="93" />
+      <File FileName="Assets/MultiplayerScripts/SyncResources.cs" Line="113" Column="37" />
+      <File FileName="Assets/MultiplayerScripts/MultiplayerMapBuilder.cs" Line="41" Column="15" />
+      <File FileName="Assets/MultiplayerScripts/MenuNetworkManager.cs" Line="36" Column="29" />
+      <File FileName="Assets/Scripts/BuildingSpace.cs" Line="56" Column="13" />
+      <File FileName="Assets/Scripts/BiomeBuilding.cs" Line="8" Column="27" />
+      <File FileName="Assets/Scripts/BiomeType.cs" Line="11" Column="5" />
+      <File FileName="Assets/Scripts/Building.cs" Line="7" Column="2" />
+      <File FileName="Assets/Scripts/BuildingDisplay.cs" Line="35" Column="6" />
+      <File FileName="Assets/Scripts/BuildingManager.cs" Line="10" Column="39" />
+      <File FileName="Assets/Scripts/CameraMovement.cs" Line="40" Column="34" />
+      <File FileName="Assets/Scripts/CameraShake.cs" Line="9" Column="22" />
+      <File FileName="Assets/Scripts/MapBuilder.cs" Line="9" Column="2" />
+      <File FileName="Assets/Scripts/WinManager.cs" Line="10" Column="5" />
+      <File FileName="Assets/MultiplayerScripts/MultiplayerBuildingSpace.cs" Line="80" Column="13" />
+      <File FileName="Assets/MultiplayerScripts/MultiplayerBuildingDisplay.cs" Line="155" Column="18" />
+      <File FileName="Assets/MultiplayerScripts/MultiplayerBuildingManager.cs" Line="54" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

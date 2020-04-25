@@ -33,9 +33,10 @@ public class MenuNetworkManager : NetworkManager
         if (SceneManager.GetActiveScene().name == "MenuScene")
         {
 
+                SetupMenu();
 
-            Debug.Log(IP.transform.Find("Text").GetComponent<Text>().text);
-            Debug.Log(Port.transform.Find("Text").GetComponent<Text>().text);
+            //Debug.Log(IP.transform.Find("Text").GetComponent<Text>().text);
+            //Debug.Log(Port.transform.Find("Text").GetComponent<Text>().text);
             if (Input.GetKeyDown("escape")) {
                 //base.StopHost();
 
@@ -65,6 +66,7 @@ public class MenuNetworkManager : NetworkManager
     }
 
     public void StartHosting() {
+        FindObjectOfType<AudioManager>().Play("Build");
         base.StopHost();
         SetPort();
         base.StartHost();
@@ -74,10 +76,12 @@ public class MenuNetworkManager : NetworkManager
     {
         string PortNumber = Port.transform.Find("Text").GetComponent<Text>().text;
         base.networkPort = int.Parse(PortNumber);
+
     }
 
     public void ConnnectToHost()
     {
+        FindObjectOfType<AudioManager>().Play("Build");
         SetIP();
         SetPort();
         base.StartClient();
@@ -89,6 +93,7 @@ public class MenuNetworkManager : NetworkManager
     }
 
     public void PlayLocalOnOnePc() {
+        FindObjectOfType<AudioManager>().Play("Build");
         SceneManager.LoadScene("LocalScene");
     }
 
