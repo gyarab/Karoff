@@ -121,5 +121,8 @@ public class MenuNetworkManager : NetworkManager
         LocalGameButton.GetComponent<Button>().onClick.AddListener(PlayLocalOnOnePc);
     }
 
+    public void StopHosting() {
+        base.StopHost();
+    }
 
 }

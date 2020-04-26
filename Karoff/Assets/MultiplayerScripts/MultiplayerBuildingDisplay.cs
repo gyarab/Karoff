@@ -147,7 +147,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
 
                 if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 0)
                 {
-
+                    FindObjectOfType<AudioManager>().Play("Build");
                     bb.selected.gameObject.GetComponentInParent<SyncTile>().SetTile(building.ToString());
                     FindObjectOfType<PlayerCommands>().SetMultipliers(change1, change2, change3, change4, change5, change6, change7, change8, change9, tm.currentTurn);
                     //FindObjectOfType<PlayerCommands>().SetSprite(building.ToString());
@@ -155,7 +155,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
                 }
                 else if (player.Equals("client") && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 0)
                 {
-
+                    FindObjectOfType<AudioManager>().Play("Build");
                     bb.selected.gameObject.GetComponentInParent<SyncTile>().SetTile(building.ToString());
                     FindObjectOfType<PlayerCommands>().SetMultipliers(change1, change2, change3, change4, change5, change6, change7, change8, change9, tm.currentTurn);
                     //FindObjectOfType<PlayerCommands>().SetSprite(building.ToString());
@@ -219,7 +219,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
 
                 if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 0)
                 {
-                    
+                    FindObjectOfType<AudioManager>().Play("Build");
                     bb.selected.gameObject.GetComponentInParent<SyncTile>().SetTile(building.ToString());
                     FindObjectOfType<PlayerCommands>().SetMultipliers(change1, change2, change3, change4, change5, change6, change7, change8, change9, tm.currentTurn);
                     //FindObjectOfType<PlayerCommands>().SetSprite(building.ToString());
@@ -227,7 +227,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
                 }
                 else if (player.Equals("client") && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 0)
                 {
-
+                    FindObjectOfType<AudioManager>().Play("Build");
                     bb.selected.gameObject.GetComponentInParent<SyncTile>().SetTile(building.ToString());
                     FindObjectOfType<PlayerCommands>().SetMultipliers(change1, change2, change3, change4, change5, change6, change7, change8, change9, tm.currentTurn);
                     //FindObjectOfType<PlayerCommands>().SetSprite(building.ToString());
@@ -243,6 +243,7 @@ public class MultiplayerBuildingDisplay : MonoBehaviour
                 return;
             }
         }
+
     }
 
 

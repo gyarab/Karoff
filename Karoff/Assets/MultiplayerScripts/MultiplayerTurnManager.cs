@@ -50,8 +50,8 @@ public class MultiplayerTurnManager : NetworkBehaviour
         Debug.Log(rm);
         rm.EndTurnResources();
         turn += 1;
-
         WinCheck();
+
         if (currentTurn == "Red" && turn%2!=0)
             {
                 currentTurn = "Blue";
@@ -109,7 +109,7 @@ public class MultiplayerTurnManager : NetworkBehaviour
     }
 
 
-    protected void WinCheck()
+    public void WinCheck()
     {
         if (wm.goal == "Points")
         {
