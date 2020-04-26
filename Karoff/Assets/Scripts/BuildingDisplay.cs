@@ -93,6 +93,7 @@ public class BuildingDisplay : MonoBehaviour
 
                 bb.selected.spr.sprite = building.buildingIcon;
                 bb.selected.spr.color = new Color(1f, 1f, 1f);
+                FindObjectOfType<AudioManager>().Play("Build");
                 bm.ActivityOnBuildingsMenu(false);
                 bb.DeselectBiome();
                 tm.ChangeTurn();
@@ -134,6 +135,7 @@ public class BuildingDisplay : MonoBehaviour
 
                 bb.selected.spr.sprite = building.buildingIcon;
                 bb.selected.spr.color = new Color(1f, 1f, 1f);
+                FindObjectOfType<AudioManager>().Play("Build");
                 bm.ActivityOnBuildingsMenu(false);
                 bb.DeselectBiome();
                 tm.ChangeTurn();

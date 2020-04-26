@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class WinManager : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class WinManager : MonoBehaviour
 
     private ResourceManager rm;
     private TurnManager tm;
+
+    public GameObject winScreen;
+    public TextMeshProUGUI winner;
 
     private void Awake()
     {
@@ -35,14 +40,22 @@ public class WinManager : MonoBehaviour
         if (rm.blueResources[0] >= numberOfPoints)
         {
             Debug.Log("Blue Wins!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            winScreen.SetActive(true);
+            winner.SetText("Blue Wins!");
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             return;
         }
 
         if (rm.redResources[0] >= numberOfPoints)
         {
             Debug.Log("Red Wins!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            winScreen.SetActive(true);
+            winner.SetText("Red Wins!");
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             return;
         }
     }
@@ -54,17 +67,29 @@ public class WinManager : MonoBehaviour
             if(rm.blueResources[0] > rm.redResources[0])
             {
                 Debug.Log("Blue Wins!");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+                winScreen.SetActive(true);
+                winner.SetText("Blue Wins!");
+
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             } else if(rm.redResources[0] > rm.blueResources[0])
             {
                 Debug.Log("Red Wins!");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+                winScreen.SetActive(true);
+                winner.SetText("Red Wins!");
+
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             } else
             {
                 Debug.Log("Tie!");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+                winScreen.SetActive(true);
+                winner.SetText("Tie!");
+
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             }
         }
