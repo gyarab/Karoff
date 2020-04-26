@@ -58,7 +58,7 @@ public class MultiplayerWinManager : MonoBehaviour
 
             winScreen.SetActive(true);
             winner.SetText("Red Wins!");
-            GetComponent<MenuNetworkManager>().StopHosting();
+            //GetComponent<MenuNetworkManager>().StopHosting();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             return;
         }

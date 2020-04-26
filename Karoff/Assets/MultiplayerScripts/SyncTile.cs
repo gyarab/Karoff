@@ -54,7 +54,7 @@ public class SyncTile : NetworkBehaviour
 
 
         go = o.transform.Find("Biome").gameObject;
-        InvokeRepeating("SyncTiles", 0, 1.0f);
+        InvokeRepeating("SyncTiles", 0, 0.5f);
 
     }
 
