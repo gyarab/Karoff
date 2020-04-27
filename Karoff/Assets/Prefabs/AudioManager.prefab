@@ -46,7 +46,7 @@ MonoBehaviour:
   mixerGroup: {fileID: 0}
   sounds:
   - name: Main1
-    clip: {fileID: 8300000, guid: 09bf463e064ff4333874a1293bd110c1, type: 3}
+    clip: {fileID: 8300000, guid: 6bbc003cdcaa8884589f2c2151c23758, type: 3}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -56,7 +56,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Build
     clip: {fileID: 8300000, guid: cb47b5418bd23e44b9a4eb0d7c503c17, type: 3}
-    volume: 1
+    volume: 0.65
     volumeVariance: 0
     pitch: 2.01
     pitchVariance: 1
@@ -65,10 +65,28 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: UI
     clip: {fileID: 8300000, guid: 78aff2678de23374c9754d286f444c6d, type: 3}
-    volume: 1
+    volume: 0.65
     volumeVariance: 0
     pitch: 1
     pitchVariance: 1
     loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Main2
+    clip: {fileID: 8300000, guid: d5764f98e6a60dc48b5e80273d074725, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Main3
+    clip: {fileID: 8300000, guid: 9a7156f8b780af941a388dbadcf3afe5, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
