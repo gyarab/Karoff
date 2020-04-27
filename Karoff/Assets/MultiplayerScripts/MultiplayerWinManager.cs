@@ -43,6 +43,16 @@ public class MultiplayerWinManager : MonoBehaviour
     {
         if (rm.blueResources[0] >= numberOfPoints)
         {
+            if(rm.redResources[0] >= numberOfPoints) {
+                Debug.Log("Red Wins!");
+
+                winScreen.SetActive(true);
+                winner.SetText("Red Wins!");
+
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                return;
+            }
+
             Debug.Log("Blue Wins!");
 
             winScreen.SetActive(true);
@@ -54,6 +64,17 @@ public class MultiplayerWinManager : MonoBehaviour
 
         if (rm.redResources[0] >= numberOfPoints)
         {
+
+            if (rm.blueResources[0] >= numberOfPoints)
+            {
+                Debug.Log("Blue Wins!");
+
+                winScreen.SetActive(true);
+                winner.SetText("Blue Wins!");
+
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                return;
+            }
             Debug.Log("Red Wins!");
 
             winScreen.SetActive(true);
@@ -70,23 +91,50 @@ public class MultiplayerWinManager : MonoBehaviour
         {
             if (rm.blueResources[0] > rm.redResources[0])
             {
-                Debug.Log("Blue Wins!");
+                if (rm.redResources[0] >= numberOfPoints)
+                {
+                    Debug.Log("Red Wins!");
 
-                winScreen.SetActive(true);
-                winner.SetText("Blue Wins!");
+                    winScreen.SetActive(true);
+                    winner.SetText("Red Wins!");
 
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                return;
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Blue Wins!");
+
+                    winScreen.SetActive(true);
+                    winner.SetText("Blue Wins!");
+
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    return;
+                }
             }
             else if (rm.redResources[0] > rm.blueResources[0])
             {
-                Debug.Log("Red Wins!");
+                if (rm.blueResources[0] >= numberOfPoints)
+                {
+                    Debug.Log("Blue Wins!");
 
-                winScreen.SetActive(true);
-                winner.SetText("Red Wins!");
+                    winScreen.SetActive(true);
+                    winner.SetText("Blue Wins!");
 
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                return;
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    return;
+                }
+                else
+                {
+
+                    Debug.Log("Red Wins!");
+
+                    winScreen.SetActive(true);
+                    winner.SetText("Red Wins!");
+
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    return;
+                }
             }
             else
             {
