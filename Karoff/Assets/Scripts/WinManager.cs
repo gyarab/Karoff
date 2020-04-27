@@ -139,5 +139,22 @@ public class WinManager : MonoBehaviour
                 return;
             }
         }
+        if (music == 1 && (rm.blueResources[0] >= music2Trigger || rm.redResources[0] >= music2Trigger))
+        {
+            music = 2;
+            //FindObjectOfType<AudioManager>().Stop("Main1");
+            FindObjectOfType<AudioManager>().Play("Main2");
+            StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main1"), FindObjectOfType<AudioManager>().Sound("Main2")));
+            return;
+        }
+
+        if (music == 2 && (rm.blueResources[0] >= music3Trigger || rm.redResources[0] >= music3Trigger))
+        {
+            music = 3;
+            //FindObjectOfType<AudioManager>().Stop("Main2");
+            FindObjectOfType<AudioManager>().Play("Main3");
+            StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main2"), FindObjectOfType<AudioManager>().Sound("Main3")));
+            return;
+        }
     }
 }

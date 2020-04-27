@@ -50,6 +50,11 @@ public class MenuNetworkManager : NetworkManager
         {
             if (Input.GetKeyDown("escape"))
             {
+
+                FindObjectOfType<AudioManager>().Stop("Main1");
+                FindObjectOfType<AudioManager>().Stop("Main2");
+                FindObjectOfType<AudioManager>().Stop("Main3");
+                FindObjectOfType<AudioManager>().Play("Main1");
                 //pridat popup jestli chce odejit
                 base.StopHost();
             }
@@ -58,6 +63,13 @@ public class MenuNetworkManager : NetworkManager
         {
             if (Input.GetKeyDown("escape"))
             {
+
+                FindObjectOfType<AudioManager>().Stop("Main1");
+                FindObjectOfType<AudioManager>().Stop("Main2");
+                FindObjectOfType<AudioManager>().Stop("Main3");
+                FindObjectOfType<AudioManager>().Play("Main1");
+
+
                 //pridat popup jestli chce odejit
                 SceneManager.LoadScene("MenuScene");
             }
@@ -65,7 +77,10 @@ public class MenuNetworkManager : NetworkManager
 
     }
 
+   
+
     public void StartHosting() {
+
         FindObjectOfType<AudioManager>().Play("Build");
         base.StopHost();
         SetPort();
@@ -93,6 +108,7 @@ public class MenuNetworkManager : NetworkManager
     }
 
     public void PlayLocalOnOnePc() {
+
         FindObjectOfType<AudioManager>().Play("Build");
         SceneManager.LoadScene("LocalScene");
     }
@@ -103,6 +119,8 @@ public class MenuNetworkManager : NetworkManager
             SetupMenu();
         }
     }
+
+ 
 
     public void SetupMenu() {
         IP = GameObject.Find("IP");

@@ -21,6 +21,10 @@ public class MultiplayerWinManager : MonoBehaviour
     public GameObject winScreen;
     public TextMeshProUGUI winner;
 
+    public int music = 1;
+    public int music2Trigger = 10;
+    public int music3Trigger = 20;
+
     private void Awake()
     {
         rm = FindObjectOfType<MultiplayerResourceManager>();
@@ -48,7 +52,8 @@ public class MultiplayerWinManager : MonoBehaviour
 
                 winScreen.SetActive(true);
                 winner.SetText("Red Wins!");
-
+                FindObjectOfType<AudioManager>().Play("Main1");
+                StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             }
@@ -57,6 +62,8 @@ public class MultiplayerWinManager : MonoBehaviour
 
             winScreen.SetActive(true);
             winner.SetText("Blue Wins!");
+            FindObjectOfType<AudioManager>().Play("Main1");
+            StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
 
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             return;
@@ -71,7 +78,8 @@ public class MultiplayerWinManager : MonoBehaviour
 
                 winScreen.SetActive(true);
                 winner.SetText("Blue Wins!");
-
+                FindObjectOfType<AudioManager>().Play("Main1");
+                StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             }
@@ -79,10 +87,52 @@ public class MultiplayerWinManager : MonoBehaviour
 
             winScreen.SetActive(true);
             winner.SetText("Red Wins!");
+            FindObjectOfType<AudioManager>().Play("Main1");
+            StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
             //GetComponent<MenuNetworkManager>().StopHosting();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             return;
         }
+
+        if (music == 1 && (rm.blueResources[0] >= music2Trigger || rm.redResources[0] >= music2Trigger))
+        {
+            music = 2;
+            //FindObjectOfType<AudioManager>().Stop("Main1");
+            FindObjectOfType<AudioManager>().Play("Main2");
+            StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main1"), FindObjectOfType<AudioManager>().Sound("Main2")));
+            return;
+        }
+
+        if (music == 2 && (rm.blueResources[0] >= music3Trigger || rm.redResources[0] >= music3Trigger))
+        {
+            music = 3;
+            //FindObjectOfType<AudioManager>().Stop("Main2");
+            FindObjectOfType<AudioManager>().Play("Main3");
+            StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main2"), FindObjectOfType<AudioManager>().Sound("Main3")));
+            return;
+        }
+    }
+
+    public IEnumerator CrossFade(Sound end, Sound start)
+    {
+        bool done = false;
+        float startVol = start.source.volume;
+        start.source.volume = 0f;
+
+        while (!done)
+        {
+            end.source.volume -= Time.deltaTime;
+            start.source.volume += Time.deltaTime;
+
+            if (end.source.volume <= 0f && start.source.volume >= startVol)
+            {
+                done = true;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        end.source.Stop();
     }
 
     public void CheckTurns()
@@ -97,7 +147,8 @@ public class MultiplayerWinManager : MonoBehaviour
 
                     winScreen.SetActive(true);
                     winner.SetText("Red Wins!");
-
+                    FindObjectOfType<AudioManager>().Play("Main1");
+                    StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
                     //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     return;
                 }
@@ -107,7 +158,8 @@ public class MultiplayerWinManager : MonoBehaviour
 
                     winScreen.SetActive(true);
                     winner.SetText("Blue Wins!");
-
+                    FindObjectOfType<AudioManager>().Play("Main1");
+                    StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
                     //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     return;
                 }
@@ -120,7 +172,8 @@ public class MultiplayerWinManager : MonoBehaviour
 
                     winScreen.SetActive(true);
                     winner.SetText("Blue Wins!");
-
+                    FindObjectOfType<AudioManager>().Play("Main1");
+                    StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
                     //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     return;
                 }
@@ -131,7 +184,8 @@ public class MultiplayerWinManager : MonoBehaviour
 
                     winScreen.SetActive(true);
                     winner.SetText("Red Wins!");
-
+                    FindObjectOfType<AudioManager>().Play("Main1");
+                    StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
                     //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     return;
                 }
@@ -142,7 +196,8 @@ public class MultiplayerWinManager : MonoBehaviour
 
                 winScreen.SetActive(true);
                 winner.SetText("Tie!");
-
+                FindObjectOfType<AudioManager>().Play("Main1");
+                StartCoroutine(CrossFade(FindObjectOfType<AudioManager>().Sound("Main3"), FindObjectOfType<AudioManager>().Sound("Main1")));
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             }
