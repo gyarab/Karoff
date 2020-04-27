@@ -17,23 +17,23 @@ public class SkipTurn : MonoBehaviour
 
     private void Update()
     {
+        //detects enter key click
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            //calls skip turn for local game
             if(SceneManager.GetActiveScene().name == "LocalScene") {
-
-                // Pridat popup skip souhlas jestli ano tak LocalSkipTurn();   + varovani ze ztrati 3 pointy a 40% kazde resource
 
                 LocalSkipTurn();
 
-
             }
             else if (SceneManager.GetActiveScene().name == "MultiplayerScene") {
-
+                //calls skip turn for multiplayer networking game
                 MultiplayerSkipTurn();
             }
         }
     }
 
+    //waits and then gets information if player is host or client
     private IEnumerator LateStart()
     {
         yield return new WaitForSeconds(0.1f);
@@ -59,12 +59,11 @@ public class SkipTurn : MonoBehaviour
         }
     }
 
+    //skips turn of player who called (calls functions for it)
     public void MultiplayerSkipTurn() {
-        Debug.Log(player);
-        
+
         if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 0)
         {
-            // Pridat popup skip souhlas jestli ano tak veskery zbytek co tu je     + varovani ze ztrati 3 pointy a 40% kazde resource 
             FindObjectOfType<PlayerCommands>().Skip();
             FindObjectOfType<PlayerCommands>().ChangeTurn();
 
@@ -72,7 +71,7 @@ public class SkipTurn : MonoBehaviour
         }
         else if (player.Equals("client") && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 0)
         {
-            // Pridat popup skip souhlas jestli ano tak  veskery zbytek co tu je    + varovani ze ztrati 3 pointy a 40% kazde resource
+           
             FindObjectOfType<PlayerCommands>().Skip();
             FindObjectOfType<PlayerCommands>().ChangeTurn();
 
@@ -82,11 +81,9 @@ public class SkipTurn : MonoBehaviour
     
     }
 
-
+    //skips turn for active player on local game
     public void LocalSkipTurn()
     {
-
-
 
         if (FindObjectOfType<TurnManager>().currentTurn == "Red") {
             if (FindObjectOfType<ResourceManager>().redResources[0] - 3 < 0)

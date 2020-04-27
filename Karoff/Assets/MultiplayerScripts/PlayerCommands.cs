@@ -17,13 +17,8 @@ public class PlayerCommands : NetworkBehaviour
     GameObject ResourceManager;
 
     public MultiplayerBiomeBuilding MBB;
-    //public Building[] buildings;
-    //public Building bu;
 
-
-
-    //public GameObject tile;
-
+    //finds and selects
     private void Start()
     {
         turnManager = GameObject.Find("TurnManager");
@@ -32,52 +27,39 @@ public class PlayerCommands : NetworkBehaviour
         MBB = GameManager.GetComponent<MultiplayerBiomeBuilding>();
     }
 
-    void Update()
-    {
-
-    }
-
+    //function to call command to set sprite
     public void SetSprite(string building, GameObject o)
     {
 
         CmdSetSprite(building, o);
     }
+
+    //command to server to call rpcsetsprite as server
     [Command]
     public void CmdSetSprite(string building, GameObject o) {
         RpcSetSprite(building, o);
     }
 
+    //sets sprite for clients
     [ClientRpc]
     public void RpcSetSprite(string building, GameObject o)
     {
         o.GetComponent<SyncTile>().spr = building;
 
-
-
-
-        //    //MBB.lastSelected.spr.sprite = bu.buildingIcon;
-        //    //MBB.lastSelected.spr.color = new Color(1f, 1f, 1f);
-
-
-        //    //bb.selected.spr.sprite = building.buildingIcon;
-        //    //bb.selected.spr.color = new Color(1f, 1f, 1f);
     }
 
-
-
-
+    //function to call commend to spawn tile
     public void SpawnTile(Vector3 pos, string bt) {
         CmdSpawnObject(pos, bt);
     }
 
-
-
-
+    //function to call command to change turn
     public void ChangeTurn() 
     {
         CmdChangeTurn();
     }
 
+    //sets authority and instantiates new tile as server then sets its settings as server on clients
     [Command]
     void CmdSpawnObject(Vector3 pos, string bt) 
     {
@@ -92,6 +74,7 @@ public class PlayerCommands : NetworkBehaviour
 
     }
 
+    //sets new tile settings on clients
     [ClientRpc]
     public void RpcTileSettings(GameObject tile, string bt) {
 
@@ -119,15 +102,12 @@ public class PlayerCommands : NetworkBehaviour
 
 
         tile.transform.Find("Biome").GetComponent<MultiplayerBiome>().NewColor();
-        
 
-        //object1.GetComponent<MeshRenderer>().material.color = Color.blue;
-        //object1.GetComponent<SaveCellData>().SetColor(Color.blue);
+        //there was code from testing project can still be finded in versions under 0.8v karoff on github
     }
 
 
-
-
+    //server changes turn for clients
     [Command]
     void CmdChangeTurn()
     {
@@ -138,6 +118,7 @@ public class PlayerCommands : NetworkBehaviour
 
     }
 
+    //changes turns on clients
     [ClientRpc]
     public void RpcChangeTurn(GameObject turnO)
     {
@@ -146,10 +127,12 @@ public class PlayerCommands : NetworkBehaviour
         turnO.GetComponent<SyncResources>().ChangeResources();
     }
 
+    //sets multipliers function to call command to server to set...
     public void SetMultipliers(int c1, int c2, int c3, int c4, int c5, int c6, int c7, int c8, int c9, string c) {
         CmdSetMultipliers(c1, c2, c3, c4, c5, c6, c7, c8, c9, c);
     }
 
+    //server calls function on clients to set new values
     [Command]
     void CmdSetMultipliers(int c1, int c2, int c3, int c4, int c5, int c6, int c7, int c8, int c9, string c)
     {
@@ -160,17 +143,20 @@ public class PlayerCommands : NetworkBehaviour
 
     }
 
+    //calls local function on clients to change values
     [ClientRpc]
     public void RpcSetMultipliers(int c1, int c2, int c3, int c4, int c5, int c6, int c7, int c8, int c9, GameObject turnO, string c)
     {
         turnO.GetComponent<SyncResources>().ChangeMultipliers(c1, c2, c3, c4, c5, c6, c7, c8, c9, c);
     }
 
+    //function to command server to skip turn
     public void Skip()
     {
         CmdSkip();
     }
 
+    //server calls skip turn on clients
     [Command]
     void CmdSkip() {
         NetworkIdentity NI = turnManager.GetComponent<NetworkIdentity>();
@@ -179,6 +165,7 @@ public class PlayerCommands : NetworkBehaviour
         NI.RemoveClientAuthority(connectionToClient);
     }
 
+    //on clients is called skip turn (by server)
     [ClientRpc]
     void RpcSkip(GameObject turn) {
         turn.GetComponent<SyncResources>().skipTurn();
@@ -188,12 +175,4 @@ public class PlayerCommands : NetworkBehaviour
 }
 
 
-
-
-//jentak btw sem davam odkazy z kterych se cerpalo pri tvorbe 
-//https://answers.unity.com/questions/411793/selecting-a-game-object-with-a-mouse-click-on-it.html
-//https://www.raywenderlich.com/2826197-scriptableobject-tutorial-getting-started#toc-anchor-003
-//https://docs.unity3d.com/Manual/index.html
-//https://answers.unity.com/questions/534582/accessing-variable-defined-in-a-script-attached-to.html
-//https://answers.unity.com/questions/990807/how-do-i-get-sprite-renderer-from-all-child.html
-//https://www.youtube.com/watch?v=9w2kwGDZ6wM
+// tu byli zapisovany zdroje dokud nemeli pekne misto v dokumentu

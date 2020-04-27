@@ -78,27 +78,21 @@ public class MultiplayerResourceManager : MonoBehaviour
     [Header("Multipliers")]
 
     #region BlueMultipliers
-    //[SyncVar] 
     public int blueSandMultiplier = 1;
-    //[SyncVar] 
     public int blueWoodMultiplier = 1;
-    //[SyncVar] 
-    public int blueStoneMultiplier = 1;
-    //[SyncVar] 
+    public int blueStoneMultiplier = 1; 
     public int blueIceMultiplier = 1;
     #endregion
 
     #region RedMultipliers
-    //[SyncVar] 
     public int redSandMultiplier = 1;
-    //[SyncVar] 
-    public int redWoodMultiplier = 1;
-    //[SyncVar] 
+    public int redWoodMultiplier = 1; 
     public int redStoneMultiplier = 1;
-    //[SyncVar] 
     public int redIceMultiplier = 1;
     #endregion
 
+
+    //changes turn resources (local player)
     public void EndTurnResources()
     {   
         ChangeBlueSand(blueSandMultiplier);
@@ -133,6 +127,7 @@ public class MultiplayerResourceManager : MonoBehaviour
     public TextMeshProUGUI redIceText;
     #endregion
 
+    //updates texts with resources and points 
     public void UpdateUITexts()
     {
         bluePointsText.text = "" + blueResources[0];

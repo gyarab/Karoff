@@ -30,9 +30,9 @@ public class SyncTile : NetworkBehaviour
 
     [SyncVar] public string spr;
    
-
     [SyncVar] public bool starting = false;
 
+    //because unet/hlapi cant SyncVar unusual variables I had to give it a string and save it as string. This translates them back.
     private void Start()
     {
         if (bt.Equals("Desert"))
@@ -58,28 +58,19 @@ public class SyncTile : NetworkBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //sets tile sprite 
     public void SetTile(string building) {
         FindObjectOfType<PlayerCommands>().SetSprite(building, o);
     }
 
     void SyncTiles() {
-
+        //set biomeType if exists already
         if (biomeType != null)
         {
-            //Debug.Log(o);
-            //Debug.Log(o.GetComponent<Biome>());
-            //Debug.Log(o.GetComponent<Biome>().type);
-            //Debug.Log(biomeType);
             o.GetComponentInChildren<MultiplayerBiome>().type = biomeType;
             o.GetComponent<SpriteRenderer>().color = biomeType.typeColor;
         }
-
+        //sets sprite if exists already
         if (spr != null && spr != "")
         {
             Debug.Log("trying to set spriiiite");
@@ -95,17 +86,16 @@ public class SyncTile : NetworkBehaviour
 
             //syncVar of this 
 
-            //Debug.Log(go);
             bi = go.GetComponent<MultiplayerBiome>();
             sr = go.GetComponent<SpriteRenderer>();
 
-            //o.GetComponentInChildren<Biome>().square = bu.buildingIcon;
+        
             bi.square = bu.buildingIcon;
             sr.sprite = bu.buildingIcon;
             sr.color = new Color(1f, 1f, 1f);
         }
 
-
+        //sets if it is starting or not
         if (starting != false)
         {
             o.GetComponentInChildren<MultiplayerBiome>().startingTile = starting;

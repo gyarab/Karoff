@@ -35,18 +35,17 @@ public class MultiplayerBiome : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
+    //finds GameManager starts latestart
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
         StartCoroutine(LateStart());
-
     }
 
+    //waits for player objects to spawn and then sets player as host or client
     private IEnumerator LateStart()
     {
         yield return new WaitForSeconds(0.1f);
-
 
         var objects = GameObject.FindObjectsOfType<PlayerID>();
 
@@ -63,24 +62,18 @@ public class MultiplayerBiome : MonoBehaviour
                 player = "client";
             }
         }
-        Debug.Log(player);
 
+
+        //calls spawn particles when created
         if (startingTile)
         {
-
             spr.sprite = type.typeIcon;
-            Debug.Log(transform.parent.name);
-            //Debug.Log(transform.parent.parent.name);
             transform.parent.GetComponent<SpriteRenderer>().color = type.typeColor;
         }
         else
         {
-            Debug.Log(player);
-            Debug.Log(FindObjectOfType<MultiplayerTurnManager>().GetTurn());
-
             if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 1)
             {
-                //Debug.Log("1234");
                 SpawnParticle();
                 StartCoroutine(cs.ShakeCamera(cs.dur, cs.mag));
 
@@ -90,25 +83,17 @@ public class MultiplayerBiome : MonoBehaviour
                 SpawnParticle();
                 StartCoroutine(cs.ShakeCamera(cs.dur, cs.mag));
             }
-
         }
-
-
-
     }
 
-    //private void Update()
-    //{
-    //    spr.sprite = type.typeIcon;
-    //    transform.parent.GetComponent<SpriteRenderer>().color = type.typeColor;
-    //}
 
+    //spawns particles
     public void SpawnParticle()
     {
         Instantiate(particlePrefab, transform.position, Quaternion.identity, transform);
     }
 
-
+    //sets color
     public void NewColor()
     {
         spr.sprite = square;
@@ -118,7 +103,7 @@ public class MultiplayerBiome : MonoBehaviour
 
 
 
-
+    //detects click and selects tile and biome
     void OnMouseUp()
     {
 
@@ -127,8 +112,6 @@ public class MultiplayerBiome : MonoBehaviour
             if (BuildingSpaces.active == false)
             {
                 gameManager.GetComponent<MultiplayerBiomeBuilding>().SelectBiome(this);
-
-
             }
             else
             {
@@ -138,17 +121,15 @@ public class MultiplayerBiome : MonoBehaviour
         }
 
         else if (bb.selected.spr.sprite == null)
-        {
-            //Debug.Log(bb.selected.spr.sprite);
-            //Debug.Log(player);
-            //Debug.Log(FindObjectOfType<MultiplayerTurnManager>().GetTurn());
-
+        { 
             if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 0)
             {
+                //building menu 
                 bm.ActivityOnBuildingsMenu(true);
             }
             else if (player.Equals("client") && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 0)
             {
+                //building menu 
                 bm.ActivityOnBuildingsMenu(true);
             }
             else {

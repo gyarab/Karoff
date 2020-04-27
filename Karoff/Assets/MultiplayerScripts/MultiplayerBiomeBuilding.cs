@@ -9,7 +9,7 @@ public class MultiplayerBiomeBuilding : MonoBehaviour
     public MultiplayerBiome selected;
     public SpriteRenderer[] sprites;
 
-
+    //selects biome 
     public void SelectBiome(MultiplayerBiome biome)
     {
         if(selected != null)
@@ -20,17 +20,16 @@ public class MultiplayerBiomeBuilding : MonoBehaviour
         selected = biome;
         selected.BuildingSpaces.SetActive(true);
 
-
-
-
         Debug.Log("Selecting: " + selected.transform.parent.name);
     }
 
+    //returns biome
     public MultiplayerBiome GetBiome()
     {
         return selected;
     }
 
+    //deselects biome
     public void DeselectBiome()
     {
        

@@ -39,6 +39,7 @@ public class WinManager : MonoBehaviour
         }
     }
 
+    //checks points wincondition and controls music changes 
     public void CheckPoints()
     {
         if (rm.blueResources[0] >= numberOfPoints)
@@ -84,6 +85,7 @@ public class WinManager : MonoBehaviour
 
     }
 
+    //softly changes music
     public IEnumerator CrossFade(Sound end, Sound start)
     {
         bool done = false;
@@ -106,6 +108,7 @@ public class WinManager : MonoBehaviour
         end.source.Stop();
     }
 
+    //checks turns win contitions and changes music
     public void CheckTurns()
     {
         if(tm.turnNumber >= numberOfTurns)

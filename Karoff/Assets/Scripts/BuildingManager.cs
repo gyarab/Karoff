@@ -16,6 +16,7 @@ public class BuildingManager : MonoBehaviour
 
     public BoxCollider2D menuBox;
 
+    //displays building menu
     private void Start()
     {
 
@@ -26,7 +27,8 @@ public class BuildingManager : MonoBehaviour
         }
         
     }
-
+     
+    //detects clicks 
     private void Update()
     {
         if(Input.GetMouseButtonDown(0) && buildingsMenu.activeInHierarchy)
@@ -39,6 +41,7 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
+    //sets building menu active
     public void ActivityOnBuildingsMenu(bool active)
     {
         buildingsMenu.SetActive(active);

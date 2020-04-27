@@ -86,6 +86,7 @@ public class ResourceManager : MonoBehaviour
     public int redIceMultiplier = 1;
     #endregion
 
+    //calculates new resources at the end of the turn
     public void EndTurnResources()
     {
         ChangeBlueSand(blueSandMultiplier);
@@ -120,6 +121,7 @@ public class ResourceManager : MonoBehaviour
     public TextMeshProUGUI redIceText;
     #endregion
 
+    //changes resource texts at UI on screen
     public void UpdateUITexts()
     {
         bluePointsText.text = "" + blueResources[0];

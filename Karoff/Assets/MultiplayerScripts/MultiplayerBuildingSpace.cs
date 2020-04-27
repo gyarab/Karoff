@@ -14,17 +14,20 @@ public class MultiplayerBuildingSpace : MonoBehaviour
     public bool clickable;
     private BuildingSpacesColor[] colors;
 
+    //sets components of objects to variables 
     private void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
     }
 
+   //an interesting way to call public function...
     private void OnEnable()
     {
         CheckAvailability();
     }
 
+    //sets as clickable but only where they really are clickable
     public void CheckAvailability()
     {
         bc.enabled = true;
@@ -52,12 +55,11 @@ public class MultiplayerBuildingSpace : MonoBehaviour
 
     }
 
+    //when click on clickable calls command to spawn tile with biome 
     private void OnMouseUp()
     {
         if (clickable)
         {
-
-
             var objects = GameObject.FindObjectsOfType<PlayerID>();
 
             foreach (var o in objects)
@@ -71,16 +73,8 @@ public class MultiplayerBuildingSpace : MonoBehaviour
                     player = "client";
                 }
             }
-
-
             Vector3 pos = transform.position;
             BiomeType bt = transform.parent.parent.Find("Biome").GetComponent<MultiplayerBiome>().type;
-
-
-            
-
-
-
 
             if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn()%2 == 0) {
                 FindObjectOfType<AudioManager>().Play("Build");
@@ -96,39 +90,25 @@ public class MultiplayerBuildingSpace : MonoBehaviour
             }
 
 
-
-
-
-
-
-
-
-
-
             if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn()%2 == 0) {
                 FindObjectOfType<PlayerCommands>().ChangeTurn();            
                 }
             else if (player.Equals("client")&& FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 != 0) {
                 FindObjectOfType<PlayerCommands>().ChangeTurn();
             }
-           
-
-
+          
             FindObjectOfType<MultiplayerBiomeBuilding>().DeselectBiome();
-
-            //Debug.Log("click registered" + transform.name);
 
         }
 
     }
 
+    //I have no idea why its called SetColor but it sets plyer as host or client
     void SetColor() {
         var objects = GameObject.FindObjectsOfType<PlayerID>();
 
         foreach (var o in objects)
         {
-
-            //Debug.Log(o.ToString());
             if (o.ToString().Contains("host"))
             {
                 player = "host";
@@ -138,10 +118,6 @@ public class MultiplayerBuildingSpace : MonoBehaviour
                 player = "client";
             }
         }
-
-
-
     }
-
 
 }

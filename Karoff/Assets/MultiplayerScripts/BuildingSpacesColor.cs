@@ -8,6 +8,7 @@ public class BuildingSpacesColor : MonoBehaviour
     private string player;
     int turn;
 
+    //sets MultiplayerTurnManager script turn variable as int turn
     private void Awake()
     {
         turn = GameObject.FindObjectOfType<MultiplayerTurnManager>().turn;
@@ -16,10 +17,8 @@ public class BuildingSpacesColor : MonoBehaviour
 
     void Update()
     {
-
-
+        //sets player as host if its host or client if client
         var objects = GameObject.FindObjectsOfType<PlayerID>();
-
         foreach (var o in objects)
         {
 
@@ -34,8 +33,7 @@ public class BuildingSpacesColor : MonoBehaviour
             }
         }
 
-
-        //Debug.Log(color);   
+        //sets color of preview for building tiles
         if (isActiveAndEnabled && GetComponent<MultiplayerBuildingSpace>().clickable) {
             if ((player.Equals("host")) && FindObjectOfType<MultiplayerTurnManager>().GetTurn() % 2 == 0)
             {
@@ -53,13 +51,10 @@ public class BuildingSpacesColor : MonoBehaviour
                 this.GetComponent<SpriteRenderer>().color = color;
             }
         }
+        //sets turn deselects biome
         if(turn != GameObject.FindObjectOfType<MultiplayerTurnManager>().turn) {
-            Debug.Log("next turn");
             turn = GameObject.FindObjectOfType<MultiplayerTurnManager>().turn;
             FindObjectOfType<MultiplayerBiomeBuilding>().DeselectBiome();
         }
-
-
-
     }
 }

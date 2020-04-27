@@ -27,26 +27,19 @@ public class MultiplayerTurnManager : NetworkBehaviour
 
     private void Awake()
     {
-
         mc = Camera.main;
-        //rm = gameObject.GetComponent<MultiplayerResourceManager>();
-        //wm = FindObjectOfType<WinManager>();
     }
 
-
-    private void Update()
-    {
-
-    }
 
     public int GetTurn()
     {
         return turn;
     }
 
+
+    // almost everything what does "druha faze" does is called there
     public void SetTurn()
     {
-
         Debug.Log(rm);
         rm.EndTurnResources();
         turn += 1;
@@ -81,16 +74,14 @@ public class MultiplayerTurnManager : NetworkBehaviour
                 }*/
 
             }
-       
-        
+      
     }
 
 
+
+    //sets backgrounds
     private void Start()
     {
-
-
-        Debug.Log(SceneManager.GetActiveScene().name);
 
         if (turn % 2 == 0)
         {
@@ -108,7 +99,7 @@ public class MultiplayerTurnManager : NetworkBehaviour
 
     }
 
-
+    //checks win conditions
     public void WinCheck()
     {
         if (wm.goal == "Points")

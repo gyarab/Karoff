@@ -16,46 +16,40 @@ public class MenuNetworkManager : NetworkManager
 
     private void Start()
     {
-       IP = GameObject.Find("IP");
-       Port =  GameObject.Find("Port");
-       StartHostingButton = GameObject.Find("StartHosting");
-       ConnectToHostButton = GameObject.Find("ConnectToHost");
+        // finds and selects objects
+        IP = GameObject.Find("IP");
+        Port =  GameObject.Find("Port");
+        StartHostingButton = GameObject.Find("StartHosting");
+        ConnectToHostButton = GameObject.Find("ConnectToHost");
         LocalGameButton = GameObject.Find("Local");
 
-    IP.transform.Find("Text").GetComponent<Text>().text = "localhost";
-      Port.transform.Find("Text").GetComponent<Text>().text = "25565";
+        IP.transform.Find("Text").GetComponent<Text>().text = "localhost";
+        Port.transform.Find("Text").GetComponent<Text>().text = "25565";
     }
 
   
 
     private void Update()
     {
+        //listens for escape key to leave
         if (SceneManager.GetActiveScene().name == "MenuScene")
-        {
-
-                SetupMenu();
-
-            //Debug.Log(IP.transform.Find("Text").GetComponent<Text>().text);
-            //Debug.Log(Port.transform.Find("Text").GetComponent<Text>().text);
+        { 
+            SetupMenu();
             if (Input.GetKeyDown("escape")) {
-                //base.StopHost();
-
+                //quit game
                 Application.Quit();
             }
-
-
-
         }
         if (SceneManager.GetActiveScene().name == "MultiplayerScene")
         {
+            //sets first music
             if (Input.GetKeyDown("escape"))
             {
-
                 FindObjectOfType<AudioManager>().Stop("Main1");
                 FindObjectOfType<AudioManager>().Stop("Main2");
                 FindObjectOfType<AudioManager>().Stop("Main3");
                 FindObjectOfType<AudioManager>().Play("Main1");
-                //pridat popup jestli chce odejit
+                //stops hosting/leaves game
                 base.StopHost();
             }
         }
@@ -63,14 +57,12 @@ public class MenuNetworkManager : NetworkManager
         {
             if (Input.GetKeyDown("escape"))
             {
-
+                //sets first music
                 FindObjectOfType<AudioManager>().Stop("Main1");
                 FindObjectOfType<AudioManager>().Stop("Main2");
                 FindObjectOfType<AudioManager>().Stop("Main3");
                 FindObjectOfType<AudioManager>().Play("Main1");
-
-
-                //pridat popup jestli chce odejit
+                //goes menu
                 SceneManager.LoadScene("MenuScene");
             }
         }
@@ -78,15 +70,15 @@ public class MenuNetworkManager : NetworkManager
     }
 
    
-
+    //start hosting
     public void StartHosting() {
-
         FindObjectOfType<AudioManager>().Play("Build");
         base.StopHost();
         SetPort();
         base.StartHost();
    }
 
+    //set port from input field
     private void SetPort()
     {
         string PortNumber = Port.transform.Find("Text").GetComponent<Text>().text;
@@ -94,6 +86,7 @@ public class MenuNetworkManager : NetworkManager
 
     }
 
+    //connect to host on port and IP from iput fields
     public void ConnnectToHost()
     {
         FindObjectOfType<AudioManager>().Play("Build");
@@ -102,17 +95,19 @@ public class MenuNetworkManager : NetworkManager
         base.StartClient();
     }
 
+    //set IP from input field
     protected void SetIP() {
         string IPAdress = IP.transform.Find("Text").GetComponent<Text>().text;
         base.networkAddress = IPAdress;
     }
 
+    //Starts local scene game
     public void PlayLocalOnOnePc() {
-
         FindObjectOfType<AudioManager>().Play("Build");
         SceneManager.LoadScene("LocalScene");
     }
 
+    // has to set objects when loaded but not really well works so there are many other checks to guarantee
     private void OnLevelWasLoaded(int level)
     {
         if(level == 0) {
@@ -120,8 +115,7 @@ public class MenuNetworkManager : NetworkManager
         }
     }
 
- 
-
+    //finds sets objects as at start but with onClick listeners
     public void SetupMenu() {
         IP = GameObject.Find("IP");
         Port = GameObject.Find("Port");
@@ -131,7 +125,7 @@ public class MenuNetworkManager : NetworkManager
 
         StartHostingButton.GetComponent<Button>().onClick.RemoveAllListeners();
         StartHostingButton.GetComponent<Button>().onClick.AddListener(StartHosting);
-        //Debug.Log(StartHostingButton.GetComponent<Button>().onClick);
+       
         ConnectToHostButton.GetComponent<Button>().onClick.RemoveAllListeners();
         ConnectToHostButton.GetComponent<Button>().onClick.AddListener(ConnnectToHost);
 
@@ -139,6 +133,7 @@ public class MenuNetworkManager : NetworkManager
         LocalGameButton.GetComponent<Button>().onClick.AddListener(PlayLocalOnOnePc);
     }
 
+    //stops hosting not sure if used anywhere now but may be usefull in future
     public void StopHosting() {
         base.StopHost();
     }

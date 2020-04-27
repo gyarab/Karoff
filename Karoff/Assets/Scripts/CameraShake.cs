@@ -8,6 +8,7 @@ public class CameraShake : MonoBehaviour
     public float dur;
     public float mag;
 
+    //shakes the camera when build new tile 
     public IEnumerator ShakeCamera(float duration, float magnitude)
     {
         Vector3 originalPosition = transform.localPosition;

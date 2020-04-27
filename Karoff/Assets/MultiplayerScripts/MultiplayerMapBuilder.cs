@@ -19,13 +19,9 @@ public class MultiplayerMapBuilder : MonoBehaviour
     public GameObject[] tiles;
     public List<Vector2> coords;
     
-
+    //starts late start
     private void Start()
     {
-
-
-
-
         StartCoroutine(LateStart());
     }
 
@@ -44,11 +40,7 @@ public class MultiplayerMapBuilder : MonoBehaviour
         }
     }
 
-
-       
-
-
-
+    //waits until player and everything else spawns and then if player is host spawns starting tiles
     private IEnumerator LateStart()
     {
         yield return new WaitForSeconds(0.2f);

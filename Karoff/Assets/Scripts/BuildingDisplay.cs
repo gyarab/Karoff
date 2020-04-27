@@ -31,6 +31,7 @@ public class BuildingDisplay : MonoBehaviour
         bm = FindObjectOfType<BuildingManager>();
     }
 
+    //fills building menu
     public void Fill()
     {
         icon.sprite = building.buildingIcon;
@@ -63,6 +64,7 @@ public class BuildingDisplay : MonoBehaviour
         }
     }
 
+    //changes variables with new buildings 
     public void Buy()
     {
         if(tm.currentTurn == "Blue")

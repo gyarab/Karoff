@@ -9,6 +9,7 @@ public class PlayerID : NetworkBehaviour
 
     public string id;
 
+    //sets name of object to host or client if it is host or client when player object is spawned
     private void Start()
     {
 

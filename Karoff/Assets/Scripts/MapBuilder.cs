@@ -17,11 +17,9 @@ public class MapBuilder : MonoBehaviour
     public List<Vector2> coords;
     
 
+    //spwans 4 starting tiles at random positions
     private void Start()
-    {
-
-    
-       
+    {    
             foreach (GameObject g in tiles)
             {
                 g.transform.position = FindCoords();
@@ -29,6 +27,7 @@ public class MapBuilder : MonoBehaviour
         
     }
 
+    //generates 4 random positions
     public Vector2 FindCoords()
     {
 

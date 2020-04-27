@@ -1058,4 +1058,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/MultiplayerScene.unity
   - Assets/Scenes/LocalScene.unity
-  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Windows Karoff 0.8v/Karoff.exe
+  playerPath: /Volumes/ExtraSD/Unity/Karoff/Karoff/Windows Karoff 0.9v/Karoff.exe

@@ -33,20 +33,15 @@ public class TurnManager : MonoBehaviour
 
     private void Awake()
     {
-
-
-
         mc = Camera.main;
         rm = gameObject.GetComponent<ResourceManager>();
         wm = FindObjectOfType<WinManager>();
     }
 
+    //sets starting player and tun
     private void Start()
     {
-       
-
         Debug.Log(SceneManager.GetActiveScene().name);
-
 
         currentTurn = "Red";
         mc.backgroundColor = redColor;
@@ -66,7 +61,7 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-
+    //change turn "automaticka druha faze"
     public void ChangeTurn()
     {
         rm.EndTurnResources();
@@ -104,6 +99,7 @@ public class TurnManager : MonoBehaviour
         }
     }
         
+    //checks win conditions
     protected void WinCheck() {
         if (wm.goal == "Points")
         {

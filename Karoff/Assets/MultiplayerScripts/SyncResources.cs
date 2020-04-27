@@ -46,13 +46,7 @@ public class SyncResources : NetworkBehaviour
         InvokeRepeating("SetRes", 0, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
+    //sets resources to resources at resource manager as they are on server
     void SetRes() {
 
         ResourceManager.GetComponent<MultiplayerResourceManager>().blueResources[0] = blueResources0;
@@ -78,6 +72,7 @@ public class SyncResources : NetworkBehaviour
         ResourceManager.GetComponent<MultiplayerResourceManager>().redWoodMultiplier = redWoodMultiplier;
     }
 
+    //changes resources with sync. with server multiplier
     public void ChangeResources() {
         blueResources1 += ResourceManager.GetComponent<MultiplayerResourceManager>().blueSandMultiplier;
         blueResources2 += ResourceManager.GetComponent<MultiplayerResourceManager>().blueWoodMultiplier;
@@ -90,6 +85,7 @@ public class SyncResources : NetworkBehaviour
 
     }
 
+    //changes multipliers when building is build
     public void ChangeMultipliers(int c1, int c2, int c3, int c4, int c5, int c6, int c7, int c8, int c9, string c) {
         if (c == "Blue")
         {
@@ -116,6 +112,7 @@ public class SyncResources : NetworkBehaviour
         }
     }
 
+    //skip turn but loses 40% of every resource and 3 points
     public void skipTurn() {
        if(FindObjectOfType<MultiplayerTurnManager>().currentTurn == "Red") {
             if (redResources0 - 3 < 0)

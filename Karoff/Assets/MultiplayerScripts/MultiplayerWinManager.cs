@@ -43,6 +43,7 @@ public class MultiplayerWinManager : MonoBehaviour
         }
     }
 
+    //checks point win condition and calls change of music at progress
     public void CheckPoints()
     {
         if (rm.blueResources[0] >= numberOfPoints)
@@ -113,6 +114,7 @@ public class MultiplayerWinManager : MonoBehaviour
         }
     }
 
+    //music softly changes
     public IEnumerator CrossFade(Sound end, Sound start)
     {
         bool done = false;
@@ -135,6 +137,7 @@ public class MultiplayerWinManager : MonoBehaviour
         end.source.Stop();
     }
 
+    //checks turn win condition and calls change of music at progress
     public void CheckTurns()
     {
         if (tm.turn >= numberOfTurns)

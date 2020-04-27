@@ -7,6 +7,7 @@ public class BiomeBuilding : MonoBehaviour
 
     public Biome selected;
 
+    //selects biome
     public void SelectBiome(Biome biome)
     {
         if(selected != null)
@@ -19,6 +20,7 @@ public class BiomeBuilding : MonoBehaviour
         Debug.Log("Selecting: " + selected.transform.parent.name);
     }
 
+    //deselects biome 
     public void DeselectBiome()
     {
         selected.buildingSpaces.SetActive(false);

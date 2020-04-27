@@ -18,11 +18,13 @@ public class BuildingSpace : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
     }
 
+    //again an interesting way to call public function... :-)
     private void OnEnable()
     {
         CheckAvailability();
     }
 
+    //sets building spaces but only where they have to be clickable
     public void CheckAvailability()
     {
         bc.enabled = true;
@@ -49,6 +51,7 @@ public class BuildingSpace : MonoBehaviour
             
     }
 
+    //detects click on clickable spawns tile and sets settings for it
     private void OnMouseUp()
     {
         if (clickable)
@@ -60,15 +63,10 @@ public class BuildingSpace : MonoBehaviour
                 tile.transform.Find("Biome").GetComponent<Biome>().startingTile = false;
                 tile.transform.Find("Biome").GetComponent<Biome>().NewColor();
             
-                
-                
-                
+              
                 FindObjectOfType<TurnManager>().ChangeTurn();
                 FindObjectOfType<BiomeBuilding>().DeselectBiome();
-
         }
     }
-
-
 
 }

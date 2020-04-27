@@ -34,6 +34,7 @@ public class Biome : MonoBehaviour
         StartCoroutine(LateStart());
     }
 
+    //waits to change color and shake camera
     private IEnumerator LateStart()
     {
         yield return new WaitForSeconds(0.1f);
@@ -51,10 +52,12 @@ public class Biome : MonoBehaviour
 
     }
 
+    //spawns particle 
     public void SpawnParticle()
     {
         Instantiate(particlePrefab, transform.position, Quaternion.identity, transform);
     }
+
 
     public void NewColor()
     {
@@ -62,6 +65,7 @@ public class Biome : MonoBehaviour
         spr.color = type.typeColor;
     }
 
+    //selects when clicked
     private void OnMouseUp()
     {
         if(bb.selected != this)

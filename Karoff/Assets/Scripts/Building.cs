@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//scriptable object of building
 [CreateAssetMenu(fileName = "New Building", menuName = "Karoff/Building", order = 2)]
 public class Building : ScriptableObject
 {
