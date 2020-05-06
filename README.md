@@ -3,3 +3,5 @@ Cílem projektu je vytvořit funkční digitalní deskovou hru s prvky stavění
 
 
 Removed unnecessary auto-generated files. If you need to open the project in unity editor (needed to see changes/run/build). WARNING: YOU NEED TO EXTRACT EVERY "meta.zip" AND MOVE .meta FILES TO FOLDER WHERE THE "meta.zip" WAS LOCATED. It doesn't work correctly without them, some settings aren't saved.
+
+Poznámka: TextMesh Pro, CanvasBackground.jpg a Audio zvuky kliknutí nejsou naší tvorbou. Podrobnějí v dokumentaci. 
